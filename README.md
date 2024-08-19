@@ -103,10 +103,21 @@ First clone this repository to your computer.
 
 ### Applied Analysis
 
-1. Download the data. Change directories into the `data` directory, which is empty when you clone the directory. Use the following commands to download the data from zenodo and unzip it.
-2. Change directories to the `code/applied_analysis` directory.
+1. Download the data. Change directories into the `data` directory. Use the following command to download the data from zenodo, unzip it and place it in the correct folders. Please note that this will download about 40Gb of data.
+```
+./download_data.sh
+```
+
+Most of the data size is the bloodcell trait data. If you would like to only replicate the metabolic traits analysis, instead run
+```
+./download_metab_only.sh
+```
+
+
+
+2. Change to the `code/applied_analysis` directory.
 3. Use Snakemake to execute the analysis:
-  3a. If you are using a compute cluster: Open the file `run-snakemake-gfa.sh` in some sort of text editor (e.g. Vim). Make sure that the command given to the `--cluster` argument is appropriate for your cluster. If your cluster uses SLURM, you may not need to make any changes. However, if your cluster uses an account system, you may need to add `--account=[myaccount] \` to the cluster command. Run the following commands:
+  3a. If you are using a compute cluster: Open the file `run-snakemake-gfa.sh` in a text editor (e.g. Vim). Make sure that the command given to the `--cluster` argument is appropriate for your cluster. If your cluster uses SLURM, you may not need to make any changes. However, if your cluster uses an account system, you may need to add `--account=[myaccount] \` to the cluster command. Run the following commands:
    3b. If you are not using a compute cluster: Run the following commands:
 
 ### Simulations
