@@ -1,0 +1,223 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 96
+Job stats:
+job         count
+--------  -------
+all             1
+collect         1
+estR           12
+gfa_R          48
+ml             24
+simulate       12
+spc            12
+svd            24
+total         134
+
+Select jobs to execute...
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.B2.0.0.RDS
+    jobid: 15
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.B2.0.0.RDS
+    wildcards: scenario=B2, ndense=0, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 15 with external jobid 'Submitted batch job 12603609'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.A.12.0.RDS
+    jobid: 7
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.A.12.0.RDS
+    wildcards: scenario=A, ndense=12, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 7 with external jobid 'Submitted batch job 12603610'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.B2.3.0.RDS
+    jobid: 17
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.B2.3.0.RDS
+    wildcards: scenario=B2, ndense=3, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 17 with external jobid 'Submitted batch job 12603611'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.A.0.0.RDS
+    jobid: 3
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.A.0.0.RDS
+    wildcards: scenario=A, ndense=0, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 3 with external jobid 'Submitted batch job 12603612'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.B1.0.0.RDS
+    jobid: 9
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.B1.0.0.RDS
+    wildcards: scenario=B1, ndense=0, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 9 with external jobid 'Submitted batch job 12603613'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.B2.12.0.RDS
+    jobid: 19
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.B2.12.0.RDS
+    wildcards: scenario=B2, ndense=12, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 19 with external jobid 'Submitted batch job 12603614'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.A.3.0.RDS
+    jobid: 5
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.A.3.0.RDS
+    wildcards: scenario=A, ndense=3, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 5 with external jobid 'Submitted batch job 12603615'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.B3.0.0.RDS
+    jobid: 21
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.B3.0.0.RDS
+    wildcards: scenario=B3, ndense=0, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 21 with external jobid 'Submitted batch job 12603616'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.B3.3.0.RDS
+    jobid: 23
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.B3.3.0.RDS
+    wildcards: scenario=B3, ndense=3, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 23 with external jobid 'Submitted batch job 12603617'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.B1.12.0.RDS
+    jobid: 13
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.B1.12.0.RDS
+    wildcards: scenario=B1, ndense=12, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 13 with external jobid 'Submitted batch job 12603618'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.B1.3.0.RDS
+    jobid: 11
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.B1.3.0.RDS
+    wildcards: scenario=B1, ndense=3, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 11 with external jobid 'Submitted batch job 12603619'.
+
+[Mon Aug 19 06:24:24 2024]
+rule simulate:
+    output: ../../results/simulation_results/simulate/simulate.B3.12.0.RDS
+    jobid: 25
+    reason: Missing output files: ../../results/simulation_results/simulate/simulate.B3.12.0.RDS
+    wildcards: scenario=B3, ndense=12, rep=0
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 25 with external jobid 'Submitted batch job 12603620'.
+[Mon Aug 19 06:24:43 2024]
+Error in rule simulate:
+    jobid: 15
+    output: ../../results/simulation_results/simulate/simulate.B2.0.0.RDS
+    cluster_jobid: Submitted batch job 12603609
+
+Error executing rule simulate on cluster (jobid: 15, external: Submitted batch job 12603609, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.15.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:43 2024]
+Error in rule simulate:
+    jobid: 7
+    output: ../../results/simulation_results/simulate/simulate.A.12.0.RDS
+    cluster_jobid: Submitted batch job 12603610
+
+Error executing rule simulate on cluster (jobid: 7, external: Submitted batch job 12603610, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.7.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:43 2024]
+Error in rule simulate:
+    jobid: 17
+    output: ../../results/simulation_results/simulate/simulate.B2.3.0.RDS
+    cluster_jobid: Submitted batch job 12603611
+
+Error executing rule simulate on cluster (jobid: 17, external: Submitted batch job 12603611, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.17.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:43 2024]
+Error in rule simulate:
+    jobid: 3
+    output: ../../results/simulation_results/simulate/simulate.A.0.0.RDS
+    cluster_jobid: Submitted batch job 12603612
+
+Error executing rule simulate on cluster (jobid: 3, external: Submitted batch job 12603612, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.3.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:43 2024]
+Error in rule simulate:
+    jobid: 9
+    output: ../../results/simulation_results/simulate/simulate.B1.0.0.RDS
+    cluster_jobid: Submitted batch job 12603613
+
+Error executing rule simulate on cluster (jobid: 9, external: Submitted batch job 12603613, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.9.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:43 2024]
+Error in rule simulate:
+    jobid: 19
+    output: ../../results/simulation_results/simulate/simulate.B2.12.0.RDS
+    cluster_jobid: Submitted batch job 12603614
+
+Error executing rule simulate on cluster (jobid: 19, external: Submitted batch job 12603614, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.19.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:43 2024]
+Error in rule simulate:
+    jobid: 5
+    output: ../../results/simulation_results/simulate/simulate.A.3.0.RDS
+    cluster_jobid: Submitted batch job 12603615
+
+Error executing rule simulate on cluster (jobid: 5, external: Submitted batch job 12603615, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.5.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:43 2024]
+Error in rule simulate:
+    jobid: 21
+    output: ../../results/simulation_results/simulate/simulate.B3.0.0.RDS
+    cluster_jobid: Submitted batch job 12603616
+
+Error executing rule simulate on cluster (jobid: 21, external: Submitted batch job 12603616, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.21.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:43 2024]
+Error in rule simulate:
+    jobid: 23
+    output: ../../results/simulation_results/simulate/simulate.B3.3.0.RDS
+    cluster_jobid: Submitted batch job 12603617
+
+Error executing rule simulate on cluster (jobid: 23, external: Submitted batch job 12603617, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.23.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:44 2024]
+Error in rule simulate:
+    jobid: 13
+    output: ../../results/simulation_results/simulate/simulate.B1.12.0.RDS
+    cluster_jobid: Submitted batch job 12603618
+
+Error executing rule simulate on cluster (jobid: 13, external: Submitted batch job 12603618, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.13.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:44 2024]
+Error in rule simulate:
+    jobid: 11
+    output: ../../results/simulation_results/simulate/simulate.B1.3.0.RDS
+    cluster_jobid: Submitted batch job 12603619
+
+Error executing rule simulate on cluster (jobid: 11, external: Submitted batch job 12603619, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.11.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Mon Aug 19 06:24:44 2024]
+Error in rule simulate:
+    jobid: 25
+    output: ../../results/simulation_results/simulate/simulate.B3.12.0.RDS
+    cluster_jobid: Submitted batch job 12603620
+
+Error executing rule simulate on cluster (jobid: 25, external: Submitted batch job 12603620, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations/.snakemake/tmp.paesaxbb/snakejob.simulate.25.sh). For error details see the cluster log and the log files of the involved rule(s).
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-08-19T062421.789229.snakemake.log

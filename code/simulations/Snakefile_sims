@@ -1,0 +1,104 @@
+# Snakemake pipeline for analyzing gwas summary statistic data using GFA
+#
+#
+# LICENSE: CC0. Do what you want with the code, but it has no guarantees.
+#          https://creativecommons.org/share-your-work/public-domain/cc0/
+#
+#
+# source activate cause_large
+#
+# ./run_snakemake.sh
+#
+# don't forget to update cluster.yaml
+
+
+import pandas as pd
+import os
+
+from snakemake.utils import validate
+out_dir = "../../results/simulation_results"
+nrep = 1
+
+svd_out_files = expand(out_dir + "/svd/df_svd_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       zero_thresh = [0, 4], 
+                       pthresh = "5e-8", 
+                       scenario = ["A", "B1", "B2", "B3"], 
+                       ndense = [0, 3, 12], 
+                       rep = range(nrep))
+
+spc_out_files = expand(out_dir + "/spc/df_spc_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       pthresh = "5e-8", 
+                       scenario = ["A", "B1", "B2", "B3"], 
+                       ndense = [0, 3, 12],
+                       rep = range(nrep))
+
+ml_out_files = expand(out_dir + "/ml/df_ml_{nfct}.{scenario}.{ndense}.{rep}.RDS",
+                       nfct = [6, 12],
+                       scenario = ["A", "B1", "B2", "B3"], 
+                       ndense = [0, 3, 12],
+                       rep = range(nrep))
+
+gfa_out_files1 = expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}.{scenario}.{ndense}.{rep}.RDS",
+                       ldtype = "pval",
+                       pthresh = 1, 
+                       Rstring = ["ldsc", "pt0.05", "none", "oracle"],
+                       scenario = ["A", "B1", "B2", "B3"], 
+                       ndense = [0, 3, 12],
+                       rep = range(nrep))
+
+gfa_out_files2 = expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}.{scenario}.{ndense}.{rep}.RDS",
+                       ldtype = ["pval", "random"],
+                       pthresh = [1, "1e-3"], 
+                       Rstring = ["ldsc", "pt0.05", "none", "oracle"],
+                       scenario = ["A", "B1", "B2", "B3"], 
+                       ndense = 3 ,
+                       rep = range(nrep))
+rule all:
+    input: out_dir + "/full_results.RDS"
+
+rule simulate:
+    output: out = temp(out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS")
+    script: "R/simulate.R"
+
+rule svd:
+    input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"
+    output: out = out_dir + "/svd/svd_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS"
+    script: "R/svd.R"
+
+rule spc:
+    input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"
+    output: out = out_dir + "/spc/spc_{pthresh}.{scenario}.{ndense}.{rep}.RDS"
+    script: "R/spc.R"
+
+rule estR:
+    input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"
+    output: out = out_dir + "/R_ests/R_ests.{scenario}.{ndense}.{rep}.RDS"
+    script: "R/R_ests_all.R"
+
+rule gfa:
+    input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS", 
+           R =  out_dir + "/R_ests/R_ests.{scenario}.{ndense}.{rep}.RDS" 
+    output: out = out_dir + "/gfa/gfa_{Rstring}_{ldtype}_{pthresh}.{scenario}.{ndense}.{rep}.RDS"
+    script: "R/gfa.R"
+
+rule ml:
+    input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS",
+           R =  out_dir + "/R_ests/R_ests.{scenario}.{ndense}.{rep}.RDS" 
+    output: out = out_dir + "/ml/ml_{nfct}.{scenario}.{ndense}.{rep}.RDS"
+    script: "R/ml.R"
+
+rule eval:
+    input: dat = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS",
+           fit = out_dir + "/{method}/{method}_{mtype}.{scenario}.{ndense}.{rep}.RDS"
+    output: out = out_dir + "/{method}/df_{method}_{mtype}.{scenario}.{ndense}.{rep}.RDS"
+    script: "R/eval.R"
+
+
+rule collect:
+    input: svd = svd_out_files, spc = spc_out_files, 
+           gfa1 = gfa_out_files1, 
+           gfa2 = gfa_out_files2,
+           ml = ml_out_files
+    output: out = out_dir + "/full_results.RDS"
+    script: "R/collect.R"
+

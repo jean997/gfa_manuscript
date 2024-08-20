@@ -1,0 +1,455 @@
+INFO: DSC script exported to [32m../../results/simulation_results.html[0m
+INFO: Constructing DSC from [32mmain.dsc[0m ...
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+RuntimeError: module compiled against API version 0xf but this version of numpy is 0xe
+INFO: Building DSC database ...
+INFO: Running [32msimulate in pipeline #1[0m: 
+INFO: [32msimulate in pipeline #1[0m is [32mcompleted[0m (pending nested workflow).
+INFO: Running [32mmodule simulate[0m: 
+INFO: [32msimulate[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32msimulate[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32mmodule simulate[0m output:   [32m../../results/simulation_results/simulate/simulate_1.rds ../../results/simulation_results/simulate/simulate_4.rds... (12 items in 12 groups)[0m
+INFO: [32msimulate in pipeline #1[0m output:   [32m../../results/simulation_results/simulate/simulate_1.rds ../../results/simulation_results/simulate/simulate_4.rds... (12 items)[0m
+INFO: Running [32mR_oracle in pipeline #5[0m: 
+INFO: Running [32mR_pthresh in pipeline #3[0m: 
+INFO: Running [32mR_ldsc in pipeline #1[0m: 
+INFO: Running [32mspc in pipeline #7[0m: 
+INFO: [32mR_oracle in pipeline #5[0m is [32mcompleted[0m (pending nested workflow).
+INFO: [32mspc in pipeline #7[0m is [32mcompleted[0m (pending nested workflow).
+INFO: [32mR_ldsc in pipeline #1[0m is [32mcompleted[0m (pending nested workflow).
+INFO: [32mR_pthresh in pipeline #3[0m is [32mcompleted[0m (pending nested workflow).
+INFO: Running [32mR_none in pipeline #4[0m: 
+INFO: [32mR_none in pipeline #4[0m is [32mcompleted[0m (pending nested workflow).
+INFO: Running [32msvd in pipeline #6[0m: 
+INFO: [32msvd in pipeline #6[0m is [32mcompleted[0m (pending nested workflow).
+INFO: Running [32mmodule R_oracle[0m: 
+INFO: [32mR_oracle[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=2) is [32mignored[0m due to saved signature
+INFO: Running [32mmodule R_ldsc[0m: 
+INFO: [32mR_oracle[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32mmodule R_oracle[0m output:   [32m../../results/simulation_results/R_oracle/simulate_1_R_oracle_1.rds ../../results/simulation_results/R_oracle/simulate_4_R_oracle_2.rds... (12 items in 12 groups)[0m
+INFO: [32mR_ldsc[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32mR_ldsc[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32mmodule R_ldsc[0m output:   [32m../../results/simulation_results/R_ldsc/simulate_1_R_ldsc_1.rds ../../results/simulation_results/R_ldsc/simulate_4_R_ldsc_2.rds... (12 items in 12 groups)[0m
+INFO: Running [32mmodule svd[0m: 
+INFO: [32msvd[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=12) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=13) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=14) is [32mignored[0m due to saved signature
+INFO: [32mR_oracle in pipeline #5[0m output:   [32m../../results/simulation_results/R_oracle/simulate_1_R_oracle_1.rds ../../results/simulation_results/R_oracle/simulate_4_R_oracle_2.rds... (12 items)[0m
+INFO: [32msvd[0m (index=15) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=16) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=17) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=18) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=19) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=20) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=21) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=22) is [32mignored[0m due to saved signature
+INFO: [32msvd[0m (index=23) is [32mignored[0m due to saved signature
+INFO: [32mmodule svd[0m output:   [32m../../results/simulation_results/svd/simulate_1_svd_1.rds ../../results/simulation_results/svd/simulate_4_svd_3.rds... (24 items in 24 groups)[0m
+INFO: Running [32mmodule R_none[0m: 
+INFO: [32mR_none[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=5) is [32mignored[0m due to saved signature
+INFO: Running [32mgfa in pipeline #5[0m: 
+INFO: [32mR_none[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32mR_none[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32mmodule R_none[0m output:   [32m../../results/simulation_results/R_none/simulate_1_R_none_1.rds ../../results/simulation_results/R_none/simulate_4_R_none_2.rds... (12 items in 12 groups)[0m
+INFO: [32mR_ldsc in pipeline #1[0m output:   [32m../../results/simulation_results/R_ldsc/simulate_1_R_ldsc_1.rds ../../results/simulation_results/R_ldsc/simulate_4_R_ldsc_2.rds... (12 items)[0m
+INFO: Running [32mml in pipeline #1[0m: 
+INFO: Running [32mgfa in pipeline #2[0m: 
+INFO: [32mgfa in pipeline #5[0m is [32mcompleted[0m (pending nested workflow).
+INFO: [32mml in pipeline #1[0m is [32mcompleted[0m (pending nested workflow).
+INFO: [32mgfa in pipeline #2[0m is [32mcompleted[0m (pending nested workflow).
+INFO: [32msvd in pipeline #6[0m output:   [32m../../results/simulation_results/svd/simulate_1_svd_1.rds ../../results/simulation_results/svd/simulate_4_svd_3.rds... (24 items)[0m
+INFO: Running [32mmodule R_pthresh[0m: 
+INFO: [32mR_none in pipeline #4[0m output:   [32m../../results/simulation_results/R_none/simulate_1_R_none_1.rds ../../results/simulation_results/R_none/simulate_4_R_none_2.rds... (12 items)[0m
+INFO: Running [32mgfa in pipeline #4[0m: 
+INFO: Running [32msvd_process in pipeline #6[0m: 
+INFO: [32msvd_process in pipeline #6[0m is [32mcompleted[0m (pending nested workflow).
+INFO: [32mgfa in pipeline #4[0m is [32mcompleted[0m (pending nested workflow).
+INFO: t12tcebf7979135bf [32mrestart[0m from status [32mfailed[0m
+INFO: t12tcebf7979135bf [32msubmitted[0m to greatlakes with job id 12601324
+INFO: Running [32mmodule gfa[0m: 
+INFO: t2ta50d421f62eb4a [32msubmitted[0m to greatlakes with job id 12601325
+INFO: Running [32mmodule gfa[0m: 
+INFO: Running [32mmodule ml[0m: 
+INFO: Running [32mmodule svd_process[0m: 
+INFO: [32mml[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=6) is [32mignored[0m due to saved signature
+INFO: t2tcd0bb37286a9d3 [32msubmitted[0m to greatlakes with job id 12601326
+INFO: [32mml[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=12) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=12) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=13) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=13) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=14) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=14) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=15) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=15) is [32mignored[0m due to saved signature
+INFO: t2t2d03a0eefa68b2 [32msubmitted[0m to greatlakes with job id 12601327
+INFO: [32mml[0m (index=16) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=16) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=17) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=17) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=18) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=18) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=19) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=19) is [32mignored[0m due to saved signature
+INFO: t2t21e2915ffb02e1 [32msubmitted[0m to greatlakes with job id 12601328
+INFO: [32mml[0m (index=20) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=20) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=21) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=21) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=22) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=22) is [32mignored[0m due to saved signature
+INFO: [32mml[0m (index=23) is [32mignored[0m due to saved signature
+INFO: [32mmodule ml[0m output:   [32m../../results/simulation_results/ml/simulate_1_R_ldsc_1_ml_1.rds ../../results/simulation_results/ml/simulate_4_R_ldsc_2_ml_3.rds... (24 items in 24 groups)[0m
+INFO: [32msvd_process[0m (index=23) is [32mignored[0m due to saved signature
+INFO: [32mmodule svd_process[0m output:   [32m../../results/simulation_results/svd_process/simulate_1_svd_1_svd_process_1.rds ../../results/simulation_results/svd_process/simulate_4_svd_3_svd_process_2.rds... (24 items in 24 groups)[0m
+INFO: t2tb1b18a69a53cc5 [32msubmitted[0m to greatlakes with job id 12601329
+INFO: [32msvd_process in pipeline #6[0m output:   [32m../../results/simulation_results/svd_process/simulate_1_svd_1_svd_process_1.rds ../../results/simulation_results/svd_process/simulate_4_svd_3_svd_process_2.rds... (24 items)[0m
+INFO: t2t69e5f4d1ddd899 [32msubmitted[0m to greatlakes with job id 12601330
+INFO: Running [32meval in pipeline #6[0m: 
+INFO: t2taf1ad35c04986e [32msubmitted[0m to greatlakes with job id 12601331
+INFO: [32meval in pipeline #6[0m is [32mcompleted[0m (pending nested workflow).
+INFO: t2t076479af825a72 [32msubmitted[0m to greatlakes with job id 12601332
+INFO: t2t9a6e825cd617f1 [32msubmitted[0m to greatlakes with job id 12601333
+INFO: t2t598ad3a4384502 [32msubmitted[0m to greatlakes with job id 12601334
+INFO: t2tbb96d69fad7601 [32msubmitted[0m to greatlakes with job id 12601335
+INFO: Running [32mmodule spc[0m: 
+INFO: Running [32mmodule gfa[0m: 
+INFO: [32mspc[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32mspc[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32mspc[0m (index=2) is [32mignored[0m due to saved signature
+INFO: t2t770215d93efa4d [32msubmitted[0m to greatlakes with job id 12601336
+INFO: [32mspc[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32mspc[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32mspc[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32mspc[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32mspc[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32mspc[0m (index=8) is [32mignored[0m due to saved signature
+INFO: t2tb811a88258d6c2 [32msubmitted[0m to greatlakes with job id 12601337
+INFO: [32mspc[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32mspc[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32mspc[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32mmodule spc[0m output:   [32m../../results/simulation_results/spc/simulate_1_spc_1.rds ../../results/simulation_results/spc/simulate_4_spc_2.rds... (12 items in 12 groups)[0m
+INFO: t2tebedb2d0c590ad [32msubmitted[0m to greatlakes with job id 12601338
+INFO: t2t56cc8f776eb2ee [32msubmitted[0m to greatlakes with job id 12601339
+INFO: [32mspc in pipeline #7[0m output:   [32m../../results/simulation_results/spc/simulate_1_spc_1.rds ../../results/simulation_results/spc/simulate_4_spc_2.rds... (12 items)[0m
+INFO: Running [32mmodule eval[0m: 
+INFO: [32meval[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=12) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=13) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=14) is [32mignored[0m due to saved signature
+INFO: Running [32msvd_process in pipeline #7[0m: 
+INFO: [32meval[0m (index=15) is [32mignored[0m due to saved signature
+INFO: t2t7252ec7b38df84 [32msubmitted[0m to greatlakes with job id 12601340
+INFO: [32meval[0m (index=16) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=17) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=18) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=19) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=20) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=21) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=22) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=23) is [32mignored[0m due to saved signature
+INFO: [32mmodule eval[0m output:   [32m../../results/simulation_results/eval/simulate_1_svd_1_svd_process_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_svd_3_svd_process_2_eval_2.rds... (24 items in 24 groups)[0m
+INFO: t2te7211440d82b08 [32msubmitted[0m to greatlakes with job id 12601341
+INFO: [32msvd_process in pipeline #7[0m is [32mcompleted[0m (pending nested workflow).
+INFO: t2t53f67653688472 [32msubmitted[0m to greatlakes with job id 12601342
+INFO: [32meval in pipeline #6[0m output:   [32m../../results/simulation_results/eval/simulate_1_svd_1_svd_process_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_svd_3_svd_process_2_eval_2.rds... (24 items)[0m
+INFO: t2t7b06bf570a3489 [32msubmitted[0m to greatlakes with job id 12601343
+INFO: t2tb71d9d6b3e8cdb [32msubmitted[0m to greatlakes with job id 12601344
+INFO: Running [32mmodule svd_process[0m: 
+INFO: [32msvd_process[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=6) is [32mignored[0m due to saved signature
+INFO: t2te847ef5190fe09 [32msubmitted[0m to greatlakes with job id 12601345
+INFO: [32msvd_process[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32msvd_process[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32mmodule svd_process[0m output:   [32m../../results/simulation_results/svd_process/simulate_1_spc_1_svd_process_1.rds ../../results/simulation_results/svd_process/simulate_4_spc_2_svd_process_2.rds... (12 items in 12 groups)[0m
+INFO: t2t2e8e10e6032cb7 [32msubmitted[0m to greatlakes with job id 12601346
+INFO: [32mml in pipeline #1[0m output:   [32m../../results/simulation_results/ml/simulate_1_R_ldsc_1_ml_1.rds ../../results/simulation_results/ml/simulate_4_R_ldsc_2_ml_3.rds... (24 items)[0m
+INFO: t2ta5894eefaf3b46 [32msubmitted[0m to greatlakes with job id 12601347
+INFO: Running [32meval in pipeline #1[0m: 
+INFO: [32meval in pipeline #1[0m is [32mcompleted[0m (pending nested workflow).
+INFO: [32msvd_process in pipeline #7[0m output:   [32m../../results/simulation_results/svd_process/simulate_1_spc_1_svd_process_1.rds ../../results/simulation_results/svd_process/simulate_4_spc_2_svd_process_2.rds... (12 items)[0m
+INFO: Running [32meval in pipeline #7[0m: 
+INFO: [32meval in pipeline #7[0m is [32mcompleted[0m (pending nested workflow).
+INFO: Running [32mmodule eval[0m: 
+INFO: [32meval[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=12) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=13) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=14) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=15) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=16) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=17) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=18) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=19) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=20) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=21) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=22) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=23) is [32mignored[0m due to saved signature
+INFO: [32mmodule eval[0m output:   [32m../../results/simulation_results/eval/simulate_1_R_ldsc_1_ml_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_R_ldsc_2_ml_3_eval_2.rds... (24 items in 24 groups)[0m
+INFO: Running [32mmodule eval[0m: 
+INFO: [32meval[0m (index=0) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=1) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=2) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=3) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=4) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=5) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=6) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=7) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=8) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=9) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=10) is [32mignored[0m due to saved signature
+INFO: [32meval[0m (index=11) is [32mignored[0m due to saved signature
+INFO: [32mmodule eval[0m output:   [32m../../results/simulation_results/eval/simulate_1_spc_1_svd_process_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_spc_2_svd_process_2_eval_2.rds... (12 items in 12 groups)[0m
+INFO: [32meval in pipeline #1[0m output:   [32m../../results/simulation_results/eval/simulate_1_R_ldsc_1_ml_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_R_ldsc_2_ml_3_eval_2.rds... (24 items)[0m
+INFO: [32meval in pipeline #7[0m output:   [32m../../results/simulation_results/eval/simulate_1_spc_1_svd_process_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_spc_2_svd_process_2_eval_2.rds... (12 items)[0m
+INFO: t2t65e719495a8ddd [32msubmitted[0m to greatlakes with job id 12601348
+INFO: t2tac3298ad0d5436 [32msubmitted[0m to greatlakes with job id 12601349
+INFO: t2td5eebbca10f422 [32msubmitted[0m to greatlakes with job id 12601350
+INFO: t2tea5662de71c829 [32msubmitted[0m to greatlakes with job id 12601351
+INFO: t2tbca4abb243f57b [32msubmitted[0m to greatlakes with job id 12601352
+INFO: t2t57f1d6d196c537 [32msubmitted[0m to greatlakes with job id 12601353
+INFO: t2ta6344d222b9397 [32msubmitted[0m to greatlakes with job id 12601354
+INFO: t2td0000abe261023 [32msubmitted[0m to greatlakes with job id 12601355
+INFO: t2t4846edaea80298 [32msubmitted[0m to greatlakes with job id 12601356
+INFO: t2t20547b0bc5aceb [32msubmitted[0m to greatlakes with job id 12601357
+INFO: t2t6d95e63557b3d1 [32msubmitted[0m to greatlakes with job id 12601358
+INFO: t2tf29c93ead441f0 [32msubmitted[0m to greatlakes with job id 12601359
+INFO: t2te2fd51252fbc82 [32msubmitted[0m to greatlakes with job id 12601360
+INFO: t2t0e56ab213bb20c [32msubmitted[0m to greatlakes with job id 12601361
+INFO: t2t1f94915c9dc65a [32msubmitted[0m to greatlakes with job id 12601362
+INFO: t2t7a7976f3c92e8a [32msubmitted[0m to greatlakes with job id 12601363
+INFO: t2tbcd56b9e5bbe76 [32msubmitted[0m to greatlakes with job id 12601364
+INFO: t2t0b925c79983914 [32msubmitted[0m to greatlakes with job id 12601365
+INFO: t2tf2e0b2dae32000 [32msubmitted[0m to greatlakes with job id 12601366
+INFO: t2tf9e40ae4de2c15 [32msubmitted[0m to greatlakes with job id 12601367
+INFO: t2tfdb04f337f2043 [32msubmitted[0m to greatlakes with job id 12601368
+INFO: t2taa7e1333cedcac [32msubmitted[0m to greatlakes with job id 12601369
+INFO: t2t1253bd6ad604f1 [32msubmitted[0m to greatlakes with job id 12601370
+INFO: t2td6da036c4c3d93 [32msubmitted[0m to greatlakes with job id 12601371
+INFO: t2tdb5c362c0e15eb [32msubmitted[0m to greatlakes with job id 12601372
+INFO: t2t458c199f8f6cd6 [32msubmitted[0m to greatlakes with job id 12601373
+INFO: t2t6ca02fb7b99386 [32msubmitted[0m to greatlakes with job id 12601374
+INFO: t2t9f0ea57e1bdc91 [32msubmitted[0m to greatlakes with job id 12601375
+INFO: t2td09d4cf7a246fb [32msubmitted[0m to greatlakes with job id 12601376
+INFO: t2t24926f0f60252b [32msubmitted[0m to greatlakes with job id 12601377
+INFO: t2ta3d7e80bec764d [32msubmitted[0m to greatlakes with job id 12601378
+INFO: t2tfff74349e79053 [32msubmitted[0m to greatlakes with job id 12601379
+INFO: t2tfb58dfd1cdb19f [32msubmitted[0m to greatlakes with job id 12601380
+INFO: t2t2991927aaf4720 [32msubmitted[0m to greatlakes with job id 12601381
+INFO: t2tf6f90e29cc891f [32msubmitted[0m to greatlakes with job id 12601382
+INFO: t2t8dfbc132e8f585 [32msubmitted[0m to greatlakes with job id 12601383
+INFO: t2tcea176d2ba8287 [32msubmitted[0m to greatlakes with job id 12601384
+INFO: t2td85cbf5b0e9cd3 [32msubmitted[0m to greatlakes with job id 12601385
+INFO: t2t571e907a750110 [32msubmitted[0m to greatlakes with job id 12601386
+INFO: t2t6d9a74cf6098c4 [32msubmitted[0m to greatlakes with job id 12601387
+INFO: t2t75f690406fb470 [32msubmitted[0m to greatlakes with job id 12601388
+INFO: t2tfe490375b22d0f [32msubmitted[0m to greatlakes with job id 12601389
+INFO: t2t4644a6e59c87fb [32msubmitted[0m to greatlakes with job id 12601390
+INFO: t2tb6a808fa822096 [32msubmitted[0m to greatlakes with job id 12601391
+INFO: t2t13d457d23c283a [32msubmitted[0m to greatlakes with job id 12601392
+INFO: t2tebc84c1fb7b8cc [32msubmitted[0m to greatlakes with job id 12601393
+INFO: t2tb934748a3595de [32msubmitted[0m to greatlakes with job id 12601394
+INFO: t2t6e625bd6e56440 [32msubmitted[0m to greatlakes with job id 12601395
+INFO: t2t78728581540475 [32msubmitted[0m to greatlakes with job id 12601396
+INFO: Waiting for the completion of [32m73[0m tasks.
+INFO: Waiting for the completion of [32m65[0m tasks.
+INFO: Waiting for the completion of [32m65[0m tasks.
+INFO: Waiting for the completion of [32m48[0m tasks.
+INFO: Waiting for the completion of [32m48[0m tasks.
+INFO: Waiting for the completion of [32m34[0m tasks.
+INFO: Waiting for the completion of [32m34[0m tasks.
+INFO: Waiting for the completion of [32m27[0m tasks.
+INFO: Waiting for the completion of [32m27[0m tasks.
+INFO: Waiting for the completion of [32m14[0m tasks.
+INFO: Waiting for the completion of [32m14[0m tasks.
+INFO: Waiting for the completion of [32m7[0m tasks.
+INFO: [32mmodule gfa[0m output:   [32m../../results/simulation_results/gfa/simulate_1_R_none_1_gfa_1.rds ../../results/simulation_results/gfa/simulate_4_R_none_2_gfa_4.rds... (48 items in 48 groups)[0m
+INFO: [32mgfa in pipeline #4[0m output:   [32m../../results/simulation_results/gfa/simulate_1_R_none_1_gfa_1.rds ../../results/simulation_results/gfa/simulate_4_R_none_2_gfa_4.rds... (48 items)[0m
+INFO: Running [32meval in pipeline #4[0m: 
+INFO: [32meval in pipeline #4[0m is [32mcompleted[0m (pending nested workflow).
+INFO: Running [32mmodule eval[0m: 
+INFO: t48ta7658851da56a [32msubmitted[0m to greatlakes with job id 12601410
+INFO: Waiting for the completion of [32m8[0m tasks.
+INFO: Waiting for the completion of [32m4[0m tasks.
+INFO: Waiting for the completion of [32m4[0m tasks.
+INFO: Waiting for the completion of [32m1[0m task.
+INFO: [32mmodule gfa[0m output:   [32m../../results/simulation_results/gfa/simulate_1_R_ldsc_1_gfa_1.rds ../../results/simulation_results/gfa/simulate_4_R_ldsc_2_gfa_4.rds... (48 items in 48 groups)[0m
+INFO: [32mmodule gfa[0m output:   [32m../../results/simulation_results/gfa/simulate_1_R_oracle_1_gfa_1.rds ../../results/simulation_results/gfa/simulate_4_R_oracle_2_gfa_4.rds... (48 items in 48 groups)[0m
+INFO: [32mgfa in pipeline #2[0m output:   [32m../../results/simulation_results/gfa/simulate_1_R_ldsc_1_gfa_1.rds ../../results/simulation_results/gfa/simulate_4_R_ldsc_2_gfa_4.rds... (48 items)[0m
+INFO: [32mgfa in pipeline #5[0m output:   [32m../../results/simulation_results/gfa/simulate_1_R_oracle_1_gfa_1.rds ../../results/simulation_results/gfa/simulate_4_R_oracle_2_gfa_4.rds... (48 items)[0m
+INFO: Running [32meval in pipeline #2[0m: 
+INFO: [32meval in pipeline #2[0m is [32mcompleted[0m (pending nested workflow).
+INFO: Running [32meval in pipeline #5[0m: 
+INFO: Running [32mmodule eval[0m: 
+INFO: [32meval in pipeline #5[0m is [32mcompleted[0m (pending nested workflow).
+INFO: t48tcd73598efaa3e [32msubmitted[0m to greatlakes with job id 12601414
+INFO: Running [32mmodule eval[0m: 
+INFO: t48t37a94cda239fb [32msubmitted[0m to greatlakes with job id 12601415
+INFO: Waiting for the completion of [32m3[0m tasks.
+INFO: Waiting for the completion of [32m3[0m tasks.
+INFO: Waiting for the completion of [32m3[0m tasks.
+INFO: Waiting for the completion of [32m3[0m tasks.
+INFO: Waiting for the completion of [32m3[0m tasks.
+INFO: Waiting for the completion of [32m3[0m tasks.
+INFO: Waiting for the completion of [32m3[0m tasks.
+INFO: Waiting for the completion of [32m2[0m tasks.
+INFO: [32mmodule eval[0m output:   [32m../../results/simulation_results/eval/simulate_1_R_none_1_gfa_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_R_none_2_gfa_4_eval_2.rds... (48 items in 48 groups)[0m
+INFO: [32meval in pipeline #4[0m output:   [32m../../results/simulation_results/eval/simulate_1_R_none_1_gfa_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_R_none_2_gfa_4_eval_2.rds... (48 items)[0m
+INFO: Waiting for the completion of [32m2[0m tasks.
+INFO: Waiting for the completion of [32m2[0m tasks.
+INFO: Waiting for the completion of [32m2[0m tasks.
+INFO: [32mmodule eval[0m output:   [32m../../results/simulation_results/eval/simulate_1_R_ldsc_1_gfa_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_R_ldsc_2_gfa_4_eval_2.rds... (48 items in 48 groups)[0m
+INFO: [32mmodule eval[0m output:   [32m../../results/simulation_results/eval/simulate_1_R_oracle_1_gfa_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_R_oracle_2_gfa_4_eval_2.rds... (48 items in 48 groups)[0m
+INFO: [32meval in pipeline #2[0m output:   [32m../../results/simulation_results/eval/simulate_1_R_ldsc_1_gfa_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_R_ldsc_2_gfa_4_eval_2.rds... (48 items)[0m
+INFO: [32meval in pipeline #5[0m output:   [32m../../results/simulation_results/eval/simulate_1_R_oracle_1_gfa_1_eval_1.rds ../../results/simulation_results/eval/simulate_4_R_oracle_2_gfa_4_eval_2.rds... (48 items)[0m
+[91mERROR[0m: [91m[388032ca-6394-4623-8140-ca82f2ca8aa2]: [R_pthresh]: [tcebf7979135bfd03]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_0_bca5b2a3.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=tcebf7979135bfd03, stderr=../../results/simulation_results/R_pthresh/simulate_1_R_pthresh_1.stderr
+---------------------------------------------------------------------------
+[td94153c7054f3f7c]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_1_bdb493ab.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=td94153c7054f3f7c, stderr=../../results/simulation_results/R_pthresh/simulate_4_R_pthresh_2.stderr
+---------------------------------------------------------------------------
+[td34c18f9fb62f9f1]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_2_8ca6c4fd.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=td34c18f9fb62f9f1, stderr=../../results/simulation_results/R_pthresh/simulate_5_R_pthresh_2.stderr
+---------------------------------------------------------------------------
+[t3d43562b558d440c]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_3_acf7ef14.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=t3d43562b558d440c, stderr=../../results/simulation_results/R_pthresh/simulate_6_R_pthresh_2.stderr
+---------------------------------------------------------------------------
+[tc1683d0d02240b4c]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_4_4b819e14.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=tc1683d0d02240b4c, stderr=../../results/simulation_results/R_pthresh/simulate_2_R_pthresh_1.stderr
+---------------------------------------------------------------------------
+[t5be096c67f9a3770]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_5_1cd8090c.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=t5be096c67f9a3770, stderr=../../results/simulation_results/R_pthresh/simulate_7_R_pthresh_2.stderr
+---------------------------------------------------------------------------
+[tb40f3bb58b6a913a]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_6_35b51a13.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=tb40f3bb58b6a913a, stderr=../../results/simulation_results/R_pthresh/simulate_8_R_pthresh_2.stderr
+---------------------------------------------------------------------------
+[t060e1689908ebebc]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_7_b5339492.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=t060e1689908ebebc, stderr=../../results/simulation_results/R_pthresh/simulate_9_R_pthresh_2.stderr
+---------------------------------------------------------------------------
+[tb0b35dd04228eb7c]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_8_d96e1d7b.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=tb0b35dd04228eb7c, stderr=../../results/simulation_results/R_pthresh/simulate_3_R_pthresh_1.stderr
+---------------------------------------------------------------------------
+[t500999ec71b58324]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_9_b7baf0fa.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=t500999ec71b58324, stderr=../../results/simulation_results/R_pthresh/simulate_10_R_pthresh_2.stderr
+---------------------------------------------------------------------------
+[teb35e70163ad936d]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_10_c29aae18.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=teb35e70163ad936d, stderr=../../results/simulation_results/R_pthresh/simulate_11_R_pthresh_2.stderr
+---------------------------------------------------------------------------
+[tda0aebe37d919386]: 
+Failed to execute [0m[32mRscript /home/jvmorr/.sos/9aa21d18e243f0e8/R_pthresh_11_7b9c2c76.R[0m[91m
+exitcode=1, workdir=[0m[32m/gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_code_ocean/git_repository/gfa_manuscript/code/simulations[0m[91m, task=tda0aebe37d919386, stderr=../../results/simulation_results/R_pthresh/simulate_12_R_pthresh_2.stderr
+---------------------------------------------------------------------------
+[DSC]: Exits with 3 pending steps (output validation, eval in pipeline #3, gfa in pipeline #3)[0m
