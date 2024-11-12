@@ -1,0 +1,9 @@
+name,raw_data_path,pub_sample_size,snp,A1,A2,beta_hat,se,p_value,pos,chrom,sample_size,effect_is_or,af
+Okada_2014_24390342__rheumatoid-arthritis,../../data/gwas_data/autoimmune/ieu-a-833.vcf.gz,80799,NA,NA,NA,NA,NA,NA,NA,NA,NA,FALSE,NA
+Demenais_2017_29273806__asthma,../../data/gwas_data/autoimmune/ebi-a-GCST006862.vcf.gz,127669,NA,NA,NA,NA,NA,NA,NA,NA,NA,FALSE,NA
+Liu_2015_26192919__inflammatory-bowel-disease,../../data/gwas_data/autoimmune/ieu-a-31.vcf.gz,34652,NA,NA,NA,NA,NA,NA,NA,NA,NA,FALSE,NA
+Chiou_2021_34012112__type-1-diabetes,../../data/gwas_data/autoimmune/GCST90014023_buildGRCh38.tsv,520850,variant_id,effect_allele,other_allele,beta,standard_error,p_value,base_pair_location,chromosome,sample_size,FALSE,effect_allele_frequency
+Dubois_2010_20190752__celiac-disease,../../data/gwas_data/autoimmune/ieu-a-276.vcf.gz,15283,NA,NA,NA,NA,NA,NA,NA,NA,NA,FALSE,NA
+Patsopoulos_2019_31604244__multiple-sclerosis,../../data/gwas_data/autoimmune/ieu-b-18.vcf.gz,115803,NA,NA,NA,NA,NA,NA,NA,NA,NA,FALSE,NA
+van-der-Harst_2017_29212778__CAD,../../data/gwas_data/t2d_cad/ebi-a-GCST005195.vcf.gz,547261,NA,NA,NA,NA,NA,NA,NA,NA,NA,FALSE,NA
+Xue_2018_30054458__type-2-diabetes,../../data/gwas_data/t2d_cad/30054458-GCST006867-EFO_0001360.h.tsv.gz,655666,hm_rsid,hm_effect_allele,hm_other_allele,hm_beta,standard_error,p_value,hm_pos,hm_chrom,n,FALSE,hm_effect_allele_frequency

@@ -1,0 +1,113 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 96
+Job stats:
+job           count
+----------  -------
+all               1
+plot_metab        1
+total             2
+
+Select jobs to execute...
+
+[Thu Oct 31 12:36:03 2024]
+rule plot_metab:
+    input: ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.final.RDS
+    output: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.png, ../../results/applied_analysis/gfa_results/metab_pveci_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.RDS
+    jobid: 146
+    reason: Missing output files: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.png
+    wildcards: analysis=gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 146 with external jobid 'Submitted batch job 16438662'.
+[Thu Oct 31 12:38:24 2024]
+Finished job 146.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Thu Oct 31 12:38:24 2024]
+localrule all:
+    input: ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.final.RDS, ../../results/applied_analysis/gfa_results/bc_gfa_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.final.RDS, ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.png, ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.png, ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.png, ../../results/applied_analysis/plots/bc_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.png, ../../results/applied_analysis/plots/bc_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.png, ../../results/applied_analysis/plots/bc_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.png, ../../results/applied_analysis/gfa_results/metab_gls_loadings.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.Rgcor.RDS, ../../results/applied_analysis/gfa_results/bc_gls_loadings.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.Rgcor.RDS, ../../results/applied_analysis/plots/metab_qqplot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.1.png, ../../results/applied_analysis/plots/bc_qqplot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.1.png, ../../results/applied_analysis/plots/metab_mhtplot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.1.png, ../../results/applied_analysis/plots/bc_mhtplot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.1.png, ../../results/applied_analysis/plots/bc_mr_results.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.csv
+    jobid: 0
+    reason: Input files updated by another job: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.png
+    resources: mem_mb=10680, mem_mib=10186, disk_mb=10680, disk_mib=10186, tmpdir=/tmp
+
+[Thu Oct 31 12:38:24 2024]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: .snakemake/log/2024-10-31T123559.474823.snakemake.log
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.txt
+../../results/applied_analysis/gfa_results/metab_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed2_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_1.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_2.R_none.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_pt0.05.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_ldsc.txt
+../../results/applied_analysis/gfa_results/bc_success_gfaseed3_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0.5_3.R_none.txt
+back to checkpoint
+back to checkpoint
+back to checkpoint

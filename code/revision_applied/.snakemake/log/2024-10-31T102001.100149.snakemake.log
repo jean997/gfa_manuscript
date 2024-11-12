@@ -1,0 +1,60 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cluster nodes: 96
+Job stats:
+job           count
+----------  -------
+all               1
+plot_metab        3
+total             4
+
+Select jobs to execute...
+
+[Thu Oct 31 10:20:03 2024]
+rule plot_metab:
+    input: ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.final.RDS
+    output: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.png, ../../results/applied_analysis/gfa_results/metab_pveci_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.RDS
+    jobid: 147
+    reason: Missing output files: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05.png
+    wildcards: analysis=gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_pt0.05
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 147 with external jobid 'Submitted batch job 16432287'.
+
+[Thu Oct 31 10:20:03 2024]
+rule plot_metab:
+    input: ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.final.RDS
+    output: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.png, ../../results/applied_analysis/gfa_results/metab_pveci_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.RDS
+    jobid: 146
+    reason: Missing output files: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.png
+    wildcards: analysis=gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 146 with external jobid 'Submitted batch job 16432288'.
+
+[Thu Oct 31 10:20:03 2024]
+rule plot_metab:
+    input: ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.final.RDS
+    output: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.png, ../../results/applied_analysis/gfa_results/metab_pveci_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.RDS
+    jobid: 145
+    reason: Missing output files: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc.png
+    wildcards: analysis=gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_ldsc
+    resources: mem_mb=1000, mem_mib=954, disk_mb=1000, disk_mib=954, tmpdir=<TBD>
+
+Submitted job 145 with external jobid 'Submitted batch job 16432289'.
+[Thu Oct 31 10:21:43 2024]
+Error in rule plot_metab:
+    jobid: 146
+    input: ../../results/applied_analysis/gfa_results/metab_gfa_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.final.RDS
+    output: ../../results/applied_analysis/plots/metab_plot.gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.png, ../../results/applied_analysis/gfa_results/metab_pveci_gfaseed1_cn100.ldpruned_r20.01_kb1000_pvalue_jitter0_0.R_none.RDS
+    cluster_jobid: Submitted batch job 16432288
+
+Error executing rule plot_metab on cluster (jobid: 146, external: Submitted batch job 16432288, jobscript: /gpfs/accounts/jvmorr_root/jvmorr0/jvmorr/GFA_analysis/gfa_manuscript/code/revision_applied/.snakemake/tmp.lfe0_tle/snakejob.plot_metab.146.sh). For error details see the cluster log and the log files of the involved rule(s).
+[Thu Oct 31 10:23:43 2024]
+Finished job 147.
+1 of 4 steps (25%) done
+[Thu Oct 31 10:23:43 2024]
+Finished job 145.
+2 of 4 steps (50%) done
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2024-10-31T102001.100149.snakemake.log
