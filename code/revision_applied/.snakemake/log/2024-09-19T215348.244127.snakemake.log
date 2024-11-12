@@ -1,4 +1,0 @@
-localrules directive specifies rules that are not present in the Snakefile:
-	cor_clust
-
-Unlocking working directory.
