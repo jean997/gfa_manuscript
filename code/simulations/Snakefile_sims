@@ -17,53 +17,180 @@ import os
 
 from snakemake.utils import validate
 out_dir = "../../results/simulation_results"
-nrep = 1
+nrep = 100
+#nrep = 1
+nd = [0, 3, 12]
+scenarios_main = ["A", "B1", "B2", "B3"]
+scenarios_bc = ["bc", "bcshuffle"]
+scenarios_null = ["Anull", "B3null"]
+# total scenarios: 12 + 2 + 2 = 16
 
+## SVD output files
 svd_out_files = expand(out_dir + "/svd/df_svd_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
                        zero_thresh = [0, 4], 
                        pthresh = "5e-8", 
-                       scenario = ["A", "B1", "B2", "B3"], 
-                       ndense = [0, 3, 12], 
+                       scenario = scenarios_main,
+                       ndense = nd,
                        rep = range(nrep))
 
+svd_out_files.extend(expand(out_dir + "/svd/df_svd_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       zero_thresh = [0, 4], 
+                       pthresh = "5e-8", 
+                       scenario = scenarios_null,
+                       ndense = [0],
+                       rep = range(nrep)))
+
+svd_out_files.extend(expand(out_dir + "/svd/df_svd_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       zero_thresh = [0, 4], 
+                       pthresh = "5e-8", 
+                       scenario = scenarios_bc,
+                       ndense = [0],
+                       rep = range(nrep)))
+
+## Guide output files
+guide_out_files = expand(out_dir + "/guide/df_guide_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       zero_thresh = [0], 
+                       pthresh = "5e-8", 
+                       scenario = scenarios_main,
+                       ndense = nd,
+                       rep = range(nrep))
+
+guide_out_files.extend( expand(out_dir + "/guide/df_guide_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       zero_thresh = [0], 
+                       pthresh = "5e-8", 
+                       scenario = scenarios_null,
+                       ndense = [0],
+                       rep = range(nrep)))
+
+guide_out_files.extend( expand(out_dir + "/guide/df_guide_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       zero_thresh = [0], 
+                       pthresh = "5e-8", 
+                       scenario = scenarios_bc,
+                       ndense = [0],
+                       rep = range(nrep)))
+
+# SPC output files
 spc_out_files = expand(out_dir + "/spc/df_spc_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
                        pthresh = "5e-8", 
-                       scenario = ["A", "B1", "B2", "B3"], 
-                       ndense = [0, 3, 12],
+                       scenario = scenarios_main,
+                       ndense = nd,
+                       rep = range(nrep))
+spc_out_files.extend( expand(out_dir + "/spc/df_spc_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       pthresh = "5e-8", 
+                       scenario = scenarios_null,
+                       ndense = [0],
+                       rep = range(nrep)))
+spc_out_files.extend( expand(out_dir + "/spc/df_spc_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       pthresh = "5e-8", 
+                       scenario = scenarios_bc,
+                       ndense = [0],
+                       rep = range(nrep)))
+
+# ML output files
+# condition number only matters for scenarios bc and bcshuffle.
+# The natural condition number of scenario B3 is 12.67 so projection is basically never necessary
+ml_out_files = expand(out_dir + "/ml/df_ml_all_cn{cn}.{scenario}.{ndense}.{rep}.RDS",
+                       scenario = ["A", "B1", "B2", "B3"],
+                       ndense = nd,
+                       rep = range(nrep), 
+                       cn = [100])
+
+ml_out_files.extend( expand(out_dir + "/ml/df_ml_all_cn{cn}.{scenario}.{ndense}.{rep}.RDS",
+                       scenario = scenarios_null,
+                       ndense = [0],
+                       rep = range(nrep), 
+                       cn = [100]))
+
+ml_out_files.extend( expand(out_dir + "/ml/df_ml_all_cn{cn}.{scenario}.{ndense}.{rep}.RDS",
+                       scenario = scenarios_bc ,
+                       ndense = [0],
+                       rep = range(nrep), 
+                       cn = [100, 1000, 10000]))
+
+## FactorGo Output files
+# minsig is the minimum number of traits a variant has to be significant for to be included. 
+# Using minsig = 2 doesn't work for the null scenarios because there aren't enough snps
+# 2 is suggested in the FactorGo paper but 1 may work better
+factorgo_out_files = expand(out_dir + "/factorgo/df_factorgo_{minsig}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       minsig = [1,2],
+                       pthresh = "5e-8", 
+                       scenario = scenarios_main,
+                       ndense = nd,
                        rep = range(nrep))
 
-ml_out_files = expand(out_dir + "/ml/df_ml_{nfct}.{scenario}.{ndense}.{rep}.RDS",
-                       nfct = [6, 12],
-                       scenario = ["A", "B1", "B2", "B3"], 
-                       ndense = [0, 3, 12],
-                       rep = range(nrep))
+factorgo_out_files.extend( expand(out_dir + "/factorgo/df_factorgo_{minsig}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       minsig = [1],
+                       pthresh = "5e-8", 
+                       scenario = scenarios_null,
+                       ndense =[0], 
+                       rep = range(nrep)))
 
-gfa_out_files1 = expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}.{scenario}.{ndense}.{rep}.RDS",
+factorgo_out_files.extend( expand(out_dir + "/factorgo/df_factorgo_{minsig}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+                       minsig = [1, 2],
+                       pthresh = "5e-8", 
+                       scenario = scenarios_bc,
+                       ndense =[0], 
+                       rep = range(nrep)))
+
+
+## GFA Output Files
+#
+#Main results
+gfa_out_files = expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS",
                        ldtype = "pval",
                        pthresh = 1, 
                        Rstring = ["ldsc", "pt0.05", "none", "oracle"],
-                       scenario = ["A", "B1", "B2", "B3"], 
-                       ndense = [0, 3, 12],
-                       rep = range(nrep))
+                       scenario = scenarios_main,
+                       ndense = nd,
+                       rep = range(nrep), 
+                       cond_num = [100])
 
-gfa_out_files2 = expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}.{scenario}.{ndense}.{rep}.RDS",
+gfa_out_files.extend(expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS",
+                       ldtype = "pval",
+                       pthresh = 1, 
+                       Rstring = ["ldsc", "none", "oracle"],
+                       scenario = scenarios_null,
+                       ndense = [0],
+                       rep = range(nrep), 
+                       cond_num = [100]))
+
+gfa_out_files.extend(expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS",
+                       ldtype = "pval",
+                       pthresh = 1, 
+                       Rstring = ["ldsc", "none", "oracle"],
+                       scenario = scenarios_bc,
+                       ndense = [0],
+                       rep = range(nrep), 
+                       cond_num = [100, 1000, 10000]))
+
+# test alternative various variant selection methods
+gfa_out_files.extend(expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS",
                        ldtype = ["pval", "random"],
                        pthresh = [1, "1e-3"], 
                        Rstring = ["ldsc", "pt0.05", "none", "oracle"],
-                       scenario = ["A", "B1", "B2", "B3"], 
+                       scenario = scenarios_main,
                        ndense = 3 ,
-                       rep = range(nrep))
+                       rep = range(nrep), 
+                       cond_num = [100]))
+
+
 rule all:
     input: out_dir + "/full_results.RDS"
 
 rule simulate:
-    output: out = temp(out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS")
+    output: out = temp(out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"),
+            F_out = out_dir + "/simulate/simulateF.{scenario}.{ndense}.{rep}.RDS"
     script: "R/simulate.R"
 
 rule svd:
     input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"
     output: out = out_dir + "/svd/svd_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS"
     script: "R/svd.R"
+
+rule guide:
+    input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"
+    output: out = out_dir + "/guide/guide_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS"
+    script: "R/guide.R"
 
 rule spc:
     input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"
@@ -78,14 +205,26 @@ rule estR:
 rule gfa:
     input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS", 
            R =  out_dir + "/R_ests/R_ests.{scenario}.{ndense}.{rep}.RDS" 
-    output: out = out_dir + "/gfa/gfa_{Rstring}_{ldtype}_{pthresh}.{scenario}.{ndense}.{rep}.RDS"
+    output: out = out_dir + "/gfa/gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS"
     script: "R/gfa.R"
 
 rule ml:
     input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS",
            R =  out_dir + "/R_ests/R_ests.{scenario}.{ndense}.{rep}.RDS" 
-    output: out = out_dir + "/ml/ml_{nfct}.{scenario}.{ndense}.{rep}.RDS"
+    output: out = out_dir + "/ml/ml_all_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS"
     script: "R/ml.R"
+
+    
+rule factorgo:
+    input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS",
+    output: out = out_dir + "/factorgo/factorgo_{minsig}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+            tempfiles = temp(expand(out_dir + "/factorgo/factorgo_{{minsig}}_{{pthresh}}.{{scenario}}_{{ndense}}_{{rep}}.{type}.tsv.gz", 
+                            type = ["Wm", "Zm", "Wvar", "Zvar", "factor"])),
+            templog = temp(out_dir + "/factorgo/factorgo_{minsig}_{pthresh}.{scenario}_{ndense}_{rep}.log"),
+    params: nmax = 30, prefix = out_dir + "/factorgo/factorgo_{minsig}_{pthresh}.{scenario}_{ndense}_{rep}", 
+            temp_dir = out_dir + "/factorgo/"
+    script: "R/factorgo.R"
+
 
 rule eval:
     input: dat = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS",
@@ -95,10 +234,12 @@ rule eval:
 
 
 rule collect:
-    input: svd = svd_out_files, spc = spc_out_files, 
-           gfa1 = gfa_out_files1, 
-           gfa2 = gfa_out_files2,
-           ml = ml_out_files
+    input: svd = svd_out_files, 
+           spc = spc_out_files,
+           gfa = gfa_out_files, 
+           ml = ml_out_files,
+           guide = guide_out_files,
+           fgo = factorgo_out_files
     output: out = out_dir + "/full_results.RDS"
     script: "R/collect.R"
 

@@ -6,9 +6,16 @@ __default__:
     time: "2:00:00"
 
 simulate:
-    mem: "10G"
+    mem: "20G"
 
 estR:
-    mem: "10G"
+    mem: "20G"
     ntasks: 1
 
+factorgo:
+    mem: "20G"
+    ntasks: 1
+
+gfa:
+    mem: "20G"
+    ntasks: 1

@@ -4,6 +4,7 @@ mkdir -p log
 snakemake \
    -s Snakefile_sims \
    --keep-going \
+   --notemp \
    --jobs 96 \
    --max-jobs-per-second 5 \
    --latency-wait 30 \

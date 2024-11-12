@@ -11,6 +11,7 @@ rand_F_sim <- function(R, overlap_prop,
 
   h2_trait <- runif(n=ntrait, 0.05, 0.20)
   omega <- runif(n=ntrait, 0.2, 0.7)
+  #omega <- runif(n=ntrait, 0.5, 0.95)
   h2_factor <- runif(n=nfactor, 0.3, 0.8)
 
 
