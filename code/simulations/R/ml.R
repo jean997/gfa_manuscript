@@ -5,7 +5,9 @@ R <- readRDS(snakemake@input[["R"]])
 cond_num <- as.numeric(snakemake@wildcards[["cond_num"]])
 
 #nfact <- as.numeric(snakemake@wildcards[["nfct"]])
-Rg <- GFA::condition(R$R_ldsc$Rg, cond_num = cond_num, corr = TRUE)
+#Rg <- GFA::condition(R$R_ldsc$Rg, cond_num = cond_num, corr = TRUE)
+Rg <- Matrix::nearPD(R$R_ldsc$Rg, posd.tol = 1/cond_num, corr = TRUE)
+Rg <- as.matrix(Rg$mat)
 
 eR <- eigen(Rg, only.values=T)$values
 nF <- nFactors::nScree(x = eR)$Components |> as.list()
@@ -16,9 +18,9 @@ nF$twelve <- 12
 
 fits <- lapply(nF, function(nfact){
     if(nfact == 0){
-        fit <- list("F_hat" = matrix(NA, nrow = ncol(Z_hat), ncol = 0), 
-                    "L_hat" = NULL,
-                     "ix" = ix) 
+        fit <- list("F_hat" = matrix(NA, nrow = ncol(Rg), ncol = 0), 
+                    "L_hat" = NULL, 
+                    "fit" = NULL)
         return(fit)
     }
 
@@ -26,7 +28,6 @@ fits <- lapply(nF, function(nfact){
     if(inherits(f, "try-error")){
         fit <- list("F_hat" = NULL,
                   "L_hat" = NULL, 
-                  "B_hat" = NULL, 
                   "fit" = f);
     }else{
         fit <- list("F_hat" = matrix(f$loadings, nrow = nrow(Rg), ncol = nfact), 
