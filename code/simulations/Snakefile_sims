@@ -17,12 +17,13 @@ import os
 
 from snakemake.utils import validate
 out_dir = "../../results/simulation_results"
-nrep = 100
-#nrep = 1
-nd = [0, 3, 12]
-scenarios_main = ["A", "B1", "B2", "B3"]
-scenarios_bc = ["bc", "bcshuffle"]
-scenarios_null = ["Anull", "B3null"]
+#nrep = 100
+nrep = 1
+#nd = [0, 3, 12]
+nd = [3]
+scenarios_main = [] #["A", "B1", "B2", "B3"]
+scenarios_bc = [] #[bc, "bcshuffle"]
+scenarios_null = ["Anull", "B3null"] #["Anull", "B3null"]
 # total scenarios: 12 + 2 + 2 = 16
 
 ## SVD output files
@@ -88,9 +89,9 @@ spc_out_files.extend( expand(out_dir + "/spc/df_spc_{pthresh}.{scenario}.{ndense
 
 # ML output files
 # condition number only matters for scenarios bc and bcshuffle.
-# The natural condition number of scenario B3 is 12.67 so projection is basically never necessary
+# The natural condition number of scenario B3 is 12.67 so projection is never necessary
 ml_out_files = expand(out_dir + "/ml/df_ml_all_cn{cn}.{scenario}.{ndense}.{rep}.RDS",
-                       scenario = ["A", "B1", "B2", "B3"],
+                       scenario = scenarios_main,
                        ndense = nd,
                        rep = range(nrep), 
                        cn = [100])

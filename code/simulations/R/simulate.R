@@ -48,7 +48,8 @@ if(! scenario %in% c("bc", "bcshuffle")){
                   N, nvar, pi_L, pi_theta);
     }else{
         h2_trait <- runif(n = ntrait, 0.05, 0.2)
-        dat <- sim_mv(G = ntrait, N = N, J = nvar, 
+        dat <- sim_mv(G = ntrait, N = N*matrix(1, nrow = ntrait, ncol = ntrait), 
+                      J = nvar, 
                   h2 = h2_trait,
                   pi = pi_L + pi_theta, 
                   est_s = TRUE, 
