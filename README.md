@@ -92,7 +92,7 @@ loaded via a namespace (and not attached):
 
 ## Requirements
 
-The data used in the applied analysis occupies about 40G. The simulation experiments will produce almost 2 Tb of data. However, we have divided the simulations into chunks and most data is deleted after it is no longer needed. To fully reproduce the simulations, you will need to have at least X Gb of storage available. 
+The data used in the applied analysis occupies about 40G. The simulation experiments will produce almost 2 Tb of data. However, we have divided the simulations into chunks and most data is deleted after it is no longer needed. 
 
 This analysis will run most quickly on a compute cluster. However, we have also provided instructions in the case that you do not have a compute cluster. Parallelization is most critical for the simulation portion of the analysis. For the applied analysis, parallelization speeds up data processing. Processing data for larger chromosomes takes about 30 minutes for the blood cell analysis and about 15 minutes for the metabolic traits analysis. If this data processing is done in sequence rather than in parallel, please allow about 10 hours for the analysis. If done in parallel, the whole analysis can be completed in under an hour.
 
