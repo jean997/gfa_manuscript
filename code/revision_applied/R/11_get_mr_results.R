@@ -2,23 +2,26 @@ library(stringr)
 library(dplyr)
 library(viridis)
 
+
 mr_files_factors <- snakemake@input[["mr_input_factors"]]
-mr_files_traits <- snakemake@input[["mr_input_factors"]]
+mr_files_traits <- snakemake@input[["mr_input_traits"]]
 res <- readRDS(snakemake@input[["gfa_fit"]]) 
+
 
 #publication factor order for bloodcel traits
 fct_order <- c(7,  2,  3,  6,  1,  9, 14, 10,  5, 11,  4,  8, 12, 13) 
 
 # names of index traits
-ix_names2 <- c("eosinophil #","neutrophil #","lymphocyte #","monocyte #",
- "basophil #","platelet #", "mean platelet volume","platelet dist width",
- "reticulocyte #","mean corpuscular hemoglobin", "hematocrit",
- "mean corpuscular hemoglobin conc", "immature reticulocyte frac","red cell dist width")     
 
-ix_names1 <- c("_eosinophil-count","neutrophil-count","lymphocyte-count","monocyte-count",
- "_basophil-count","platelet-count", "mean-platelet-volume","platelet-distribution-width",
- "_reticulocyte-count","mean-corpuscular-hemoglobin$", "hematocrit",
- "mean-corpuscular-hemoglobin-concentration", "immature-reticulocyte-fraction","red-cell-distribution-width")     
+ix_names2 <- c("basophil #", "eosinophil #","lymphocyte #", "monocyte #", "neutrophil #",
+                "platelet #", "platelet dist width", "mean platelet volume",
+                "hematocrit", "mean corpuscular hemoglobin conc", "mean corpuscular hemoglobin",
+                "reticulocyte #","immature reticulocyte frac","red cell dist width")     
+
+ix_names1 <- c("_basophil-count",  "_eosinophil-count", "lymphocyte-count","monocyte-count","neutrophil-count",
+               "platelet-count","platelet-distribution-width", "mean-platelet-volume",
+               "hematocrit", "mean-corpuscular-hemoglobin-concentration", "mean-corpuscular-hemoglobin$",
+                "_reticulocyte-count","immature-reticulocyte-fraction","red-cell-distribution-width")     
 
 res_index_trait_location <- sapply(ix_names1, function(n){grep(n, res$names)}) %>% as.numeric()
 
@@ -51,11 +54,12 @@ all_mr_results <- purrr::map_dfr(seq_along(outcome_traits), function(i){
   mr_results$fct_se <- res_fct$ivw_res[str_replace(mr_results$factor, "factor", "exposure"), "Std. Error"]*abs(mr_results$fct_scale_factor)
   mr_results$fct_p <- res_fct$ivw_res[str_replace(mr_results$factor, "factor", "exposure"), "Pr(>|t|)"]
 
-  mr_results$trait_beta <- res_trait$ivw_res[, "Estimate"]
-  mr_results$trait_se <- res_trait$ivw_res[, "Std. Error"]
-  mr_results$trait_p <- res_trait$ivw_res[, "Pr(>|t|)"]
-  mr_results$trait_F <- unlist(res_trait$str_res)
-  mr_results$fct_F <- unlist(res_fct$str_res)
+  trait_res_order <- sapply(ix_names1, function(n){grep(n, res_trait$trait_names)}) %>% as.numeric()
+  mr_results$trait_beta <- res_trait$ivw_res[trait_res_order, "Estimate"]
+  mr_results$trait_se <- res_trait$ivw_res[trait_res_order, "Std. Error"]
+  mr_results$trait_p <- res_trait$ivw_res[trait_res_order, "Pr(>|t|)"]
+  mr_results$trait_F <- unlist(res_trait$str_res)[trait_res_order]
+  mr_results$fct_F <- unlist(res_fct$str_res)[fct_order]
   return(mr_results)
 })
 

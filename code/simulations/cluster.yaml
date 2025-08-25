@@ -8,6 +8,9 @@ __default__:
 simulate:
     mem: "20G"
 
+sim_data:
+    mem: "10G"
+
 estR:
     mem: "20G"
     ntasks: 1

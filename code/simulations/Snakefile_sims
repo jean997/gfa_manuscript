@@ -17,13 +17,13 @@ import os
 
 from snakemake.utils import validate
 out_dir = "../../results/simulation_results"
-#nrep = 100
-nrep = 1
-#nd = [0, 3, 12]
-nd = [3]
-scenarios_main = [] #["A", "B1", "B2", "B3"]
-scenarios_bc = [] #[bc, "bcshuffle"]
-scenarios_null = ["Anull", "B3null"] #["Anull", "B3null"]
+nrep = 100
+#nrep = 1
+nd = [0, 3, 12]
+#nd = [3]
+scenarios_main = ["A", "B1", "B2", "B3"]
+scenarios_bc = ["bc", "bcshuffle"]
+scenarios_null = ["Anull", "B3null"]
 # total scenarios: 12 + 2 + 2 = 16
 
 ## SVD output files
@@ -174,9 +174,14 @@ gfa_out_files.extend(expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_
                        rep = range(nrep), 
                        cond_num = [100]))
 
-
+simdata_files = expand(out_dir + "/simdata/simdata.{scenario}.{ndense}.{rep}.RDS", 
+                  scenario = ["A", "bc"],
+                  ndense = 3,
+                  rep = range(nrep))
 rule all:
-    input: out_dir + "/full_results.RDS"
+    #input: out_dir + "/full_results.RDS"
+    input: simdata_files
+                 
 
 rule simulate:
     output: out = temp(out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"),
@@ -244,3 +249,7 @@ rule collect:
     output: out = out_dir + "/full_results.RDS"
     script: "R/collect.R"
 
+rule sim_data:
+    input: dat = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS",
+    output: out = out_dir + "/simdata/simdata.{scenario}.{ndense}.{rep}.RDS"
+    script: "R/summarize_sims.R"

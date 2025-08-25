@@ -28,7 +28,12 @@ ld_res <- ld_clump(P, plink_bin = genetics.binaRies::get_plink_binary(), bfile =
 ld_resu <- ld_clump(Pu, plink_bin = genetics.binaRies::get_plink_binary(), bfile = ref_path, 
                    clump_p = pthresh, clump_r2 = r2_thresh, clump_kb = clump_kb)
 
-P_top <- filter(P, rsid %in% ld_res$rsid)
+traitcount_top_u <- filter(P, rsid %in% ld_resu$rsid) %>% 
+            group_by(rsid) %>% summarize(ntraits_sig = n())
+ld_resu <- left_join(ld_resu, traitcount_top_u)
+
+
+
 overlap_table <- purrr::map_dfr(Pnames, function(n1){
     top_snps <- ld_res %>% filter(id == n1) %>% pull(rsid)
     if(length(top_snps) == 0){

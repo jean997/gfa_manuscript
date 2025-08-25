@@ -16,3 +16,7 @@ R_ldsc_full:
 
 plot_metab:
     mem: "20G"
+
+mht:
+    mem: "40G"
+

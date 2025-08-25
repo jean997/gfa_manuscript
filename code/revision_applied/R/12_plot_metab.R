@@ -85,7 +85,7 @@ pve_int <- GFA:::gfa_credints(res, nsamp = nsamp, level = level, type = "pve")
 
 # reorder to match publication
 pve_int$pve_lower <- pve_int$pve_lower[o, fct_order]
-pve_int$pve_upper <- pve_int$pve_lower[o, fct_order]
+pve_int$pve_upper <- pve_int$pve_upper[o, fct_order]
 pve_int$pve_est <-  res$gfa_pve$pve[o, fct_order]
 pve_int$names <- res$names[o]
 pve_int$F_hat <- F_hat$F_hat

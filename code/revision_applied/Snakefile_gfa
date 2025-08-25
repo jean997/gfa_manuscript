@@ -122,9 +122,8 @@ rule all:
            factor_plots,
            rgcor_files,
            qq_plots, mht_plots,
-           mr_output
-           #inp_plots, 
-           #plot_dir + "bc_traitgencor_plot.png" 
+           mr_output,
+           plot_dir + "bc_traitgencor_plot.png" 
 
 # Run GFA
 def R_input(wcs):
@@ -319,7 +318,7 @@ rule plot_bc:
     input: gfa_fit = out_dir + "bc_gfa_{analysis}.final.RDS",
            fct_gencor =  out_dir + "bc_gls_loadings.{analysis}.Rgcor.RDS",
            factor_ld_pruned_files = expand(out_dir + "bc_gls_loadings.{{analysis}}.top_snps.{chrom}.RDS", chrom = range(1, 23))
-    output: factor_plot = plot_dir + "bc_plot.{analysis}.png"
+    output: factor_plot = plot_dir + "bc_plot.{analysis}.png",
     params: fct_gencor_plot = plot_dir + "bc_fctgencor_plot.{analysis}.png",
             factor_overlap_plot = plot_dir + "bc_fctoverlap_plot.{analysis}.png"
     script: "R/12_plot_bloodcell.R"
@@ -331,16 +330,18 @@ rule qq:
     script: "R/12_plot_qqplot.R"
 
 rule mht:
-    input: Z = expand(out_dir + "{{prefix}}_gls_loadings.{{analysis}}.{chrom}.RDS", chrom = range(1, 23))
+    input: Z_factors = expand(out_dir + "{{prefix}}_gls_loadings.{{analysis}}.{chrom}.RDS", chrom = range(1, 23)),
+           Z_traits = expand(data_dir + "{{prefix}}_zmat.{chrom}.RDS", chrom = range(1, 23)), 
+           gfa_res =  out_dir + "{prefix}_gfa_{analysis}.final.RDS",
     output: mht_out = plot_dir + "{prefix}_mhtplot.{analysis}.1.png"
     script: "R/12_plot_mht.R"
 
 ## write table of MR results
 rule get_mr_results:
-    input: mr_input_factors = expand(mr_out_dir + "bc_mr_fct.{outcome}.{{analysis}}.RDS", outcome = outcomes),
-           mr_input_traits = expand(mr_out_dir + "bc_mr_fct.{outcome}.{{analysis}}.RDS", outcome = outcomes ),
-           gfa_fit = out_dir + "bc_gfa_{analysis}.final.RDS"
-    output: out =  plot_dir + "bc_mr_results.{analysis}.csv"
+    input: mr_input_factors = expand(mr_out_dir + "bc_mr_fct.{outcome}.{{analysis}}.{{rstring}}.RDS", outcome = outcomes),
+           mr_input_traits =  expand(mr_out_dir + "bc_mr_trait.{outcome}.{{rstring}}.RDS", outcome = outcomes),
+           gfa_fit = out_dir + "bc_gfa_{analysis}.{rstring}.final.RDS"
+    output: out =  plot_dir + "bc_mr_results.{analysis}.{rstring}.csv"
     script: "R/11_get_mr_results.R"
 
 

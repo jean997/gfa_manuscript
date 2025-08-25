@@ -2,52 +2,66 @@ library(dplyr)
 library(purrr)
 library(stringr)
 library(ggplot2)
+library(topr)
 
-
-# sample size affects genetic covariance and h2 but not intercept or genetic correlation
-z_files = unlist(snakemake@input[["Z"]])
+z_files_factors = unlist(snakemake@input[["Z_factors"]])
+z_files_traits = unlist(snakemake@input[["Z_traits"]])
+res <- readRDS(snakemake@input[["gfa_res"]])
 mht_out_prefix <- snakemake@output[["mht_out"]] |> str_replace(".1.png$", "")
 
-X <- map_dfr(z_files, function(f){
+X_fct <- map_dfr(z_files_factors, function(f){
   readRDS(f) 
 })
 
-X$chrom <- as.numeric(X$chrom)
+X_fct$chrom <- as.numeric(X_fct$chrom)
 
-fct_names <- str_subset(names(X), "\\.p$")
+fct_names <- str_subset(names(X_fct), "\\.p$")
 fct_names <- str_replace(fct_names, "\\.p$", "")
 
 nf <- length(fct_names)
+
 # order as shown in publication figures
 if(str_detect(mht_out_prefix, "metab_")){
     fct_order <- c(1,  5, 15, 11,  2, 10,  7,  4, 13,  3,  8,  6,  9, 14, 12)
-    disp_name <- paste0("Factor ", 1:nf)
+    disp_name <- paste0("CAD/T2D Factor ", 1:nf)
 }else if(str_detect(mht_out_prefix, "bc_")){
-    fct_order <- c(7,  2,  3,  6,  1,  9, 14, 10,  5, 11,  4,  8, 12, 13) #c(7, 2, 1,3,6, 14, 10, 9, 5,11, 4, 8, 12, 13)
-    disp_name <- paste0("Factor ", 1:nf)
+    fct_order <- c(7,  2,  3,  6,  1,  9, 14, 10,  5, 11,  4,  8, 12, 13) 
+    disp_name <- paste0("Blood Cell Factor ", 1:nf)
 }
 
+X_trait <- map_dfr(z_files_traits, function(f){
+  readRDS(f) 
+})
+trait_names <- str_subset(names(X_trait), "\\.z$")
+trait_names <- str_replace(trait_names, "\\.z$", "")
 
-nplot <- ceiling(nf/2)
+disp_trait_names <- str_split(trait_names, "__") %>% map(2) %>% unlist() %>% str_replace("-", " ")
+
+
+#nplot <- ceiling(nf/2)
 
 
 i <- 1
-for(j in 1:nplot){
-    png(paste0(mht_out_prefix, ".", j, ".png"), 
-        height = 8, width = 15, units = "in", res = 300)
-    par(mfrow = c(2, 1))
-    nmax <- min(2, length(fct_names)-i -1)
-    for(k in 1:nmax){
-        X$pval <- pmax(X[[paste0(fct_names[fct_order[i]], ".p")]], 1e-100)
-        qqman::manhattan(x = X, 
-                         chr = "chrom", 
-                         bp = "pos", 
-                         p = "pval",
-                         snp = "snp",
-                         main = disp_name[i])
-        i <- i + 1
-    }
-    dev.off()
+for(j in 1:nf){
+    out_file <- paste0(mht_out_prefix, ".", j, ".png") 
+    which_f <- paste0("factor", fct_order[j], ".p")
+    lookup <- c(CHROM = "chrom", POS = "pos", "P" = which_f)
+    myX <- select(X_fct, all_of(c("chrom", "pos", which_f))) %>%
+           rename(all_of(lookup))
+
+    tname <- res$names[which.max(abs(res$F_hat[, fct_order[j]]))]
+    which_trait <- paste0(tname, ".z")
+    lookup_trait <- c("Z" = which_trait)
+    myTrt <- select(X_trait, all_of(c(which_trait))) %>%
+             rename(all_of(lookup_trait)) %>%
+             mutate(P = 2*pnorm(-abs(Z))) %>%
+             select(P)
+    myTrt <- cbind(myX[, c("CHROM", "POS")], myTrt)
+    trait_index <- match(tname, trait_names)
+    disp_tname <- disp_trait_names[trait_index]
+    disp_fname <- disp_name[j]
+    plt <- manhattan(list(myX, myTrt), annotate = 1e-20, legend_labels = c(disp_fname, disp_tname), ntop =1, title = disp_fname, build = 37)
+    ggsave(plt, file= out_file, height = 8, width = 15, units = "in", dpi = 300)
 }
 
 

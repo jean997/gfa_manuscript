@@ -4,6 +4,7 @@ library(stringr)
 library(ggplot2)
 
 
+source("R/order_scale_factors.R")
 # sample size affects genetic covariance and h2 but not intercept or genetic correlation
 z_files = unlist(snakemake@input[["Z"]])
 qq_out_prefix <- snakemake@output[["qq_out"]] |> str_replace(".1.png$", "")
@@ -20,10 +21,9 @@ if(str_detect(qq_out_prefix, "metab_")){
     fct_order <- c(1,  5, 15, 11,  2, 10,  7,  4, 13,  3,  8,  6,  9, 14, 12)
     disp_name <- paste0("Factor ", 1:nf)
 }else if(str_detect(qq_out_prefix, "bc_")){
-    fct_order <- c(7,  2,  3,  6,  1,  9, 14, 10,  5, 11,  4,  8, 12, 13) #c(7, 2, 1,3,6, 14, 10, 9, 5,11, 4, 8, 12, 13)
+    fct_order <- c(7,  2,  3,  6,  1,  9, 14, 10,  5, 11,  4,  8, 12, 13) 
     disp_name <- paste0("Factor ", 1:nf)
 }
-
 
 nplot <- ceiling(nf/4)
 
