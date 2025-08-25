@@ -10,7 +10,7 @@ R_ldsc <- R_ldsc(Z_hat, ldscores = ldscores, ld_size = nrow(Z_hat),
 
 
 ### P-threshold
-ix <- readRDS("ld_rand_5e5.RDS")
+ix <- readRDS("ld_rand_1e6.RDS")
 p_thresh <- 0.05
 R_pt <- R_pt(dat$beta_hat[ix,], dat$se_beta_hat[ix,], p_val_thresh = p_thresh, 
                                  make_well_conditioned = FALSE)

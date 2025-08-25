@@ -31,7 +31,7 @@ ldtype <- snakemake@wildcards[["ldtype"]]
 pthresh <- as.numeric(snakemake@wildcards[["pthresh"]])
 
 if(ldtype == "random"){
-         ix <- readRDS("ld_rand_5e5.RDS")
+         ix <- readRDS("ld_rand_1e6.RDS")
 }else if(ldtype == "pval"){
          ix <- dat$ld_pval;
 }
