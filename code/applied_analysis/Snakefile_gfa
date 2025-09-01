@@ -296,6 +296,7 @@ rule topsnps_fctgls:
 
 
 ## plot metablic analysis factors
+## also computes credibleintervals for pve
 rule plot_metab:
     input: gfa_fit = out_dir + "metab_gfa_{analysis}.final.RDS"
     output: out = plot_dir + "metab_plot.{analysis}.png", 
