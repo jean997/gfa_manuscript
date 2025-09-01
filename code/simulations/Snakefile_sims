@@ -186,6 +186,7 @@ rule all:
 rule simulate:
     output: out = temp(out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"),
             F_out = out_dir + "/simulate/simulateF.{scenario}.{ndense}.{rep}.RDS"
+    resources: mem_mb = 20000
     script: "R/simulate.R"
 
 rule svd:
@@ -206,6 +207,7 @@ rule spc:
 rule estR:
     input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"
     output: out = out_dir + "/R_ests/R_ests.{scenario}.{ndense}.{rep}.RDS"
+    resources: mem_mb = 20000
     script: "R/R_ests_all.R"
 
 rule gfa:
@@ -229,6 +231,7 @@ rule factorgo:
             templog = temp(out_dir + "/factorgo/factorgo_{minsig}_{pthresh}.{scenario}_{ndense}_{rep}.log"),
     params: nmax = 30, prefix = out_dir + "/factorgo/factorgo_{minsig}_{pthresh}.{scenario}_{ndense}_{rep}", 
             temp_dir = out_dir + "/factorgo/"
+    resources: mem_mb = 20000
     script: "R/factorgo.R"
 
 
@@ -252,10 +255,11 @@ rule collect:
 rule sim_data:
     input: dat = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS",
     output: out = out_dir + "/simdata/simdata.{scenario}.{ndense}.{rep}.RDS"
+    resources: mem_mb = 10000
     script: "R/summarize_sims.R"
 
 rule plots:
-    input: sim_results = out_dir + "/full_results.RDS", simdata_files
+    input: sim_results = out_dir + "/full_results.RDS", simdata = simdata_files
     output: out1 = out_dir + "/plots/main_sims_ndense3.png"
     params: plot_dir = out_dir + "/plots"
 
