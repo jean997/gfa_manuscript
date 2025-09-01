@@ -109,7 +109,7 @@ mht_plots = expand(plot_dir + "{prefix}_mhtplot.{gfas}.ldpruned_{lds}.R_{rs}.1.p
 
 
 
-outcome_info_file = "autoimmune.csv"
+outcome_info_file = "orig_autoimmune.csv"
 outcomes = pd.read_csv(outcome_info_file, na_filter=False)['name']
 mr_out_dir = "../../results/applied_analysis/mr_results/"
 mr_output = expand(plot_dir + "bc_mr_results.{gfas}.ldpruned_{lds}.R_{rs}.csv", 
@@ -150,7 +150,7 @@ rule run_gfa:
 def refit_input(wcs):
     n = int(wcs.n)
     oldn = str(n-1)
-    return f'{out_dir}{wcs.prefix}_gfa_gfaseed{wcs.fs}.ldpruned_{wcs.ldsctring}.R_{wcs.Rstring}.{oldn}.RDS'
+    return f'{out_dir}{wcs.prefix}_gfa_gfaseed{wcs.fs}.ldpruned_{wcs.ldstring}.R_{wcs.Rstring}.{oldn}.RDS'
 
 rule refit_gfa:
     input:  inp = refit_input
@@ -284,7 +284,7 @@ rule topsnps_traits:
             r2_thresh = 0.01, 
             clump_kb = 1000,
             pthresh = "5e-8" 
-    wildcard_constraints: chrom = "\d+"
+    wildcard_constraints: chrom = r"\d+"
     script: "R/9_topsnps.R"
 
 rule topsnps_fctgls:
@@ -294,7 +294,7 @@ rule topsnps_fctgls:
             r2_thresh = 0.01, 
             clump_kb = 1000,
             pthresh = "5e-8" 
-    wildcard_constraints: chrom = "\d+"
+    wildcard_constraints: chrom = r"\d+"
     script: "R/9_topsnps.R"
 
 
