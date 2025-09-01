@@ -22,9 +22,8 @@ nrep = 100
 nd = [0, 3, 12]
 #nd = [3]
 scenarios_main = ["A", "B1", "B2", "B3"]
-scenarios_bc = ["bc", "bcshuffle"]
+scenarios_bc = ["bc"] #, "bcshuffle"]
 scenarios_null = ["Anull", "B3null"]
-# total scenarios: 12 + 2 + 2 = 16
 
 ## SVD output files
 svd_out_files = expand(out_dir + "/svd/df_svd_{zero_thresh}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
@@ -180,7 +179,8 @@ simdata_files = expand(out_dir + "/simdata/simdata.{scenario}.{ndense}.{rep}.RDS
                   rep = range(nrep))
 rule all:
     #input: out_dir + "/full_results.RDS"
-    input: simdata_files
+    #input: simdata_files
+    input:  out_dir + "/plots/main_sims_ndense3.png"
                  
 
 rule simulate:
@@ -253,3 +253,9 @@ rule sim_data:
     input: dat = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS",
     output: out = out_dir + "/simdata/simdata.{scenario}.{ndense}.{rep}.RDS"
     script: "R/summarize_sims.R"
+
+rule plots:
+    input: sim_results = out_dir + "/full_results.RDS", simdata_files
+    output: out1 = out_dir + "/plots/main_sims_ndense3.png"
+    params: plot_dir = out_dir + "/plots"
+

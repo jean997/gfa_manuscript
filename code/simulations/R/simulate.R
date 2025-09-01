@@ -63,7 +63,7 @@ if(! scenario %in% c("bc", "bcshuffle")){
     }
 }else{
     R <- readRDS("bc_R_estimate.R_ldsc.RDS")
-    RE <- readRDS("bc_RE.RDS")
+    RE <- cov2cor(R$R) #readRDS("bc_RE.RDS")
     ntrait <- ncol(RE)
     h2_trait <- diag(R$Rg)
 
@@ -83,10 +83,9 @@ if(! scenario %in% c("bc", "bcshuffle")){
     myN <- matrix(N, nrow = ntrait, ncol = ntrait)
 
     nvar <- 1e6
-    #pi_L <- rep(1000/nvar, nfactor)
-    #pi_theta <- 500/nvar # not used because omega is 1
     r2_thresh <- 0.01
 
+    # these include the null component so pi_L and pi_theta set to 1
     snp_eff_fcts <- readRDS("bc_factor_dists.RDS")
 
     dat <- sim_lf(F_mat = myF,
@@ -107,17 +106,6 @@ if(! scenario %in% c("bc", "bcshuffle")){
      dat$N <- rep(N, ntrait)
      dat <- GWASBrewer:::calc_ld_scores(dat, R_LD = ld_mat_list)
 }
-
-#dat$nsig_per_trait <- sapply(1:ntrait, function(i){
-#                                  x <- sim_ld_prune(dat, pvalue = i, 
-#                                                    R_LD = ld_mat_list, 
-#                                                    r2_thresh = 0.01, 
-#                                                    pval_thresh = 5e-8)
-#                                  cat(length(x), "\n")
-#                                  return(length(x))})
-#
-
-
 
 
 dat$ld_rand <- readRDS("ld_rand_1e6.RDS");
