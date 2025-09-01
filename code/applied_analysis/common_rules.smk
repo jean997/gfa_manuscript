@@ -53,6 +53,7 @@ rule snp_table_chrom:
     params: af_thresh = af_min,
             sample_size_tol = sstol_max
     wildcard_constraints: chrom = r"\d+"
+    resources: mem_mb = 20000
     script: 'R/1_combine_and_format.R'
 
 
@@ -66,6 +67,7 @@ rule ld_prune_plink:
     params: ref_path = config["analysis"]["ldprune"]["ref_path"],
             pthresh = 1
     wildcard_constraints: chrom = r"\d+"
+    resources: mem_mb = 10000
     script: 'R/2_ld_prune_chrom_plink.R'
 
 
@@ -98,5 +100,6 @@ rule R_ldsc_full:
            l2 = expand(l2_dir + "{chrom}.l2.ldscore.gz", chrom = range(1, 23))
     output: out = data_dir + "{prefix}_R_estimate.R_ldsc.RDS"
     wildcard_constraints: pt = r"[\d.]+"
+    resources: mem_mb = 20000
     script: "R/3_R_ldsc_all.R"
 
