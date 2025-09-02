@@ -175,10 +175,9 @@ gfa_out_files.extend(expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_
                        rep = range(nrep), 
                        cond_num = [100]))
 
-simdata_files = expand(out_dir + "/simdata/simdata.{scenario}.{ndense}.{rep}.RDS", 
-                  scenario = ["A", "bc"],
-                  ndense = 3,
-                  rep = range(nrep))
+simdata_files = expand(out_dir + "/simdata/simdata.A.3.{rep}.RDS", rep = range(nrep))
+simdata_files.extend( expand(out_dir + "/simdata/simdata.bc.0.{rep}.RDS",  rep = range(nrep)))
+
 rule all:
     #input: out_dir + "/full_results.RDS"
     #input: simdata_files
