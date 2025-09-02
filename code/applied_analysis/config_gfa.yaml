@@ -9,7 +9,7 @@
 
 input:
     metab: "metab_traits.csv"
-    bc: "bloodcell_ldsc97.csv"
+    bc: "astle_bloodcell_ldsc97.csv"
 
 analysis:
     # LD pruning options:
