@@ -111,22 +111,23 @@ ml_out_files.extend( expand(out_dir + "/ml/df_ml_all_cn{cn}.{scenario}.{ndense}.
 # minsig is the minimum number of traits a variant has to be significant for to be included. 
 # Using minsig = 2 doesn't work for the null scenarios because there aren't enough snps
 # 2 is suggested in the FactorGo paper but 1 may work better
+# 1 did not work better, didn't include in manuscript, removed
 factorgo_out_files = expand(out_dir + "/factorgo/df_factorgo_{minsig}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
-                       minsig = [1,2],
+                       minsig = [2],
                        pthresh = "5e-8", 
                        scenario = scenarios_main,
                        ndense = nd,
                        rep = range(nrep))
 
-factorgo_out_files.extend( expand(out_dir + "/factorgo/df_factorgo_{minsig}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
-                       minsig = [1],
-                       pthresh = "5e-8", 
-                       scenario = scenarios_null,
-                       ndense =[0], 
-                       rep = range(nrep)))
+#factorgo_out_files.extend( expand(out_dir + "/factorgo/df_factorgo_{minsig}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
+#                       minsig = [1],
+#                       pthresh = "5e-8", 
+#                       scenario = scenarios_null,
+#                       ndense =[0], 
+#                       rep = range(nrep)))
 
 factorgo_out_files.extend( expand(out_dir + "/factorgo/df_factorgo_{minsig}_{pthresh}.{scenario}.{ndense}.{rep}.RDS", 
-                       minsig = [1, 2],
+                       minsig = [2],
                        pthresh = "5e-8", 
                        scenario = scenarios_bc,
                        ndense =[0], 
@@ -139,7 +140,8 @@ factorgo_out_files.extend( expand(out_dir + "/factorgo/df_factorgo_{minsig}_{pth
 gfa_out_files = expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS",
                        ldtype = "pval",
                        pthresh = 1, 
-                       Rstring = ["ldsc", "pt0.05", "none", "oracle"],
+                       Rstring = ["ldsc", "none", "oracle"],
+                       #Rstring = ["ldsc", "pt0.05", "none", "oracle"],
                        scenario = scenarios_main,
                        ndense = nd,
                        rep = range(nrep), 
@@ -157,7 +159,7 @@ gfa_out_files.extend(expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_
 gfa_out_files.extend(expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS",
                        ldtype = "pval",
                        pthresh = 1, 
-                       Rstring = ["ldsc", "none", "oracle"],
+                       Rstring = ["ldsc", "oracle"],
                        scenario = scenarios_bc,
                        ndense = [0],
                        rep = range(nrep), 
@@ -167,7 +169,7 @@ gfa_out_files.extend(expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_
 gfa_out_files.extend(expand(out_dir + "/gfa/df_gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS",
                        ldtype = ["pval", "random"],
                        pthresh = [1, "1e-3"], 
-                       Rstring = ["ldsc", "pt0.05", "none", "oracle"],
+                       Rstring = ["ldsc", "pt0.05"],
                        scenario = scenarios_main,
                        ndense = 3 ,
                        rep = range(nrep), 
@@ -214,6 +216,7 @@ rule gfa:
     input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS", 
            R =  out_dir + "/R_ests/R_ests.{scenario}.{ndense}.{rep}.RDS" 
     output: out = out_dir + "/gfa/gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS"
+    resources: mem_mb = 10000
     script: "R/gfa.R"
 
 rule ml:
