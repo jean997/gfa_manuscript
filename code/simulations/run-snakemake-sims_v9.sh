@@ -1,6 +1,5 @@
 #!/bin/bash
 
-mkdir -p log
 snakemake \
    -s Snakefile_sims \
    --keep-going \
@@ -8,10 +7,5 @@ snakemake \
    --jobs 96 \
    --max-jobs-per-second 5 \
    --latency-wait 30 \
-   --executor slurm \
-   --default-resources mem_mb=5000 runtime=120 \
-   --cluster-submit-arg "--account=jvmorr0" \
-   --job-name "sims-{rule}-{wildcards}-{jobid}" \
-   --jobscript "log/jobscript.{rule}-{wildcards}-{jobid}.sh" \
-   --cluster-output "log/log.{rule}-{wildcards}-{jobid}.out"
-
+   --default-resources mem_mb=5000 runtime=120 account=jvmorr0 \
+   --executor slurm
