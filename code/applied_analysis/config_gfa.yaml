@@ -8,8 +8,8 @@
 #   complete data and compute the genetic correlation of the factors.
 
 input:
-    metab: "metab_traits.csv"
-    bc: "astle_bloodcell_ldsc97.csv"
+    metab: "orig_metab_traits.csv"
+    bc: "orig_bloodcell_ldsc97.csv"
 
 analysis:
     # LD pruning options:

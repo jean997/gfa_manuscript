@@ -109,7 +109,7 @@ mht_plots = expand(plot_dir + "{prefix}_mhtplot.{gfas}.ldpruned_{lds}.R_{rs}.1.p
 
 
 
-outcome_info_file = "autoimmune.csv"
+outcome_info_file = "orig_autoimmune.csv"
 outcomes = pd.read_csv(outcome_info_file, na_filter=False)['name']
 mr_out_dir = "../../results/applied_analysis/mr_results/"
 mr_output = expand(plot_dir + "bc_mr_results.{gfas}.ldpruned_{lds}.R_{rs}.csv", 
