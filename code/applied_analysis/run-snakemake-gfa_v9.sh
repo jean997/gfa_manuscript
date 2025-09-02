@@ -1,6 +1,5 @@
 #!/bin/bash
 
-mkdir -p log
 snakemake \
    -s Snakefile_gfa \
    --keep-going \

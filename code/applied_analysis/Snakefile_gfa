@@ -221,6 +221,7 @@ rule gls_loadings_chrom:
            gfa_file = out_dir + "{prefix}_gfa_gfaseed{fs}.ldpruned_{ldstring}.R_{Rstring}.final.RDS",
            R = R_input
     output: out = out_dir + "{prefix}_gls_loadings.gfaseed{fs}.ldpruned_{ldstring}.R_{Rstring}.{chrom}.RDS"
+    wildcard_constraints: chrom = r"\d+"
     script: "R/7_estL_gls.R"
 
 
@@ -253,6 +254,7 @@ rule mr_factor:
             r2_thresh = 0.01,
             clump_kb = 1000,
             outcome_info_file = outcome_info_file
+    resources: mem_mb = 10000
     script: "R/10_mr_factor.R"
 
 rule mr_trait: 
