@@ -334,6 +334,7 @@ rule plot_bc:
 rule qq:
     input: Z = expand(out_dir + "{{prefix}}_gls_loadings.{{analysis}}.{chrom}.RDS", chrom = range(1, 23))
     output: qq_out = plot_dir + "{prefix}_qqplot.{analysis}.1.png"
+    resources: mem_mb = 20000
     script: "R/12_plot_qqplot.R"
 
 rule mht:
