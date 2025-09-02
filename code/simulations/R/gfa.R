@@ -41,8 +41,11 @@ ix <- ix[pmin <= pthresh]
 
 Z_hat <- with(dat, beta_hat[ix,]/s_estimate[ix,]);
 t <- system.time(
-        fit <- gfa_fit(Z_hat = Z_hat, N = dat$N, 
-                       R = newR));
+        fit <- gfa_fit(Z_hat = Z_hat, 
+                       N = dat$N, 
+                       R = newR, 
+                       params = list(cond_num = 1e6))) 
+                         # increase condition number flag for high cond_num values
 fit$ix <- ix
 fit$time <- t
 
