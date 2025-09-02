@@ -97,9 +97,7 @@ t <- system.time(f <- gfa_fit(Z_hat = Z_hat,
                                 N_case = N_case,
                                 pop_prev = pop_prev,
                                 R = newR, 
-                                params = params,
-                                mode = "z-score",
-                                method = "fixed_factors"))
+                                params = params))
 
 
 f$snps <- snps
