@@ -1,3 +1,4 @@
+source("renv/activate.R")
 library(GWASBrewer)
 
 source("R/rand_F_sim.R")

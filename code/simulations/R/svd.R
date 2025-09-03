@@ -1,3 +1,4 @@
+source("renv/activate.R")
 library(nFactors)
 
 dat <- readRDS(snakemake@input[["inp"]])

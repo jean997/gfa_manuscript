@@ -1,21 +1,12 @@
+source("renv/activate.R")
 library(dplyr)
 library(GFA)
+
 
 eval <- function(fit, f_true, n_subset = NULL){
     disc_thresh = c(0.9, 0.95, 0.98);
     extra_thresh = c(0.8, 0.7);
 
-    if(!is.null(n_subset)){
-        if(n_subset == 0){
-            if(!is.null(fit$F_hat)){
-                fit$F_hat <- fit$F_hat[, c(), drop = F]
-            }
-        }else{
-            if(!is.null(fit$F_hat)){
-                fit$F_hat <- fit$F_hat[, 1:n_subset, drop = F]
-            }
-        }
-    }
 
     if(is.null(fit$F_hat)){
         disc <- NULL;
@@ -27,10 +18,30 @@ eval <- function(fit, f_true, n_subset = NULL){
         if(!inherits(fit$F_hat, "matrix")){
             fit$F_hat <- matrix(fit$F_hat, ncol=1)
         }
-        if(is.null(f_true)){
-            f_true <- diag(nrow(fit$F_hat))
+        nfactors <- ncol(fit$F_hat)
+        if(is.null(n_subset)){
+            n_subset <- nfactors
+            f_hat <- fit$F_hat
         }
-        sol <- min_norm(f_true = f_true, f_hat = fit$F_hat, single_trait_thresh = 0.98)
+        if(n_subset == 0 | nfactors == 0){
+            n_disc <- rep(0, length(disc_thresh))
+            n_extra <- rep(0, length(extra_thresh))
+            n_total <- 0
+            ntrue <- ncol(f_true) - length(GFA:::find_single_trait(f_true))
+            frob_n <- sqrt(ntrue)
+            res <- data.frame(frob_n = frob_n, 
+                      n_extra_0.8 = n_extra[1],
+                      n_extra_0.7 = n_extra[2],
+                      n_disc_0.9  = n_disc[1],                 
+                      n_disc_0.95  = n_disc[2],
+                      n_disc_0.98   = n_disc[3], 
+                      n_total = n_total)
+            return(res)
+         }
+         if(is.null(f_true)){
+            f_true <- diag(nrow(fit$F_hat))
+         }
+         sol <- min_norm(f_true = f_true, f_hat = f_hat, single_trait_thresh = 0.98)
         
         n_disc <- sapply(disc_thresh, function(x){sum(sol$solution$match_score > x, na.rm=T)});
         n_extra <- sapply(extra_thresh, function(x){sum(sol$solution$match_score < x & !is.na(sol$solution$est_ix), na.rm=T)});
@@ -78,6 +89,7 @@ df$rep <- snakemake@wildcards[["rep"]]
 df$ftrue_file <- snakemake@input[["f_true"]]
 df$fit_file <- snakemake@input[["fit"]]
 
+#obj <- list(df = df, min_norm_func = GFA::min_norm, eval_func = eval, f_true = f_true, fit = fit)
 saveRDS(df, file = snakemake@output[["out"]])
 
 

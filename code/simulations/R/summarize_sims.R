@@ -1,4 +1,5 @@
 
+source("renv/activate.R")
 
 dat <- readRDS(snakemake@input[["dat"]])
 

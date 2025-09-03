@@ -1,3 +1,4 @@
+source("renv/activate.R")
 library(PMA)
 library(nFactors)
 

@@ -1,5 +1,7 @@
+source("renv/activate.R")
 library(nFactors)
 library(fastICA)
+
 
 dat <- readRDS(snakemake@input[["inp"]])
 pval_thresh <- as.numeric(snakemake@wildcards[["pthresh"]])

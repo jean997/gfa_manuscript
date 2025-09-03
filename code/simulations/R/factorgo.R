@@ -1,5 +1,7 @@
+source("renv/activate.R")
 library(GWASBrewer)
 library(readr)
+
 
 dat <- readRDS(snakemake@input[["inp"]])
 pthresh <- as.numeric(snakemake@wildcards[["pthresh"]])

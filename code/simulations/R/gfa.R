@@ -1,4 +1,6 @@
+source("renv/activate.R")
 library(GFA);
+
 
 dat <- readRDS(snakemake@input[["inp"]])
 Rtype <- snakemake@wildcards[["Rstring"]]
