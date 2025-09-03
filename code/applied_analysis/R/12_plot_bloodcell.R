@@ -1,3 +1,4 @@
+source("renv/activate.R")
 library(GFA)
 library(stringr)
 library(dplyr)

@@ -1,3 +1,4 @@
+source("renv/activate.R")
 library(dplyr)
 library(ggplot2)
 library(stringr)
@@ -5,7 +6,6 @@ library(GFA)
 library(viridis)
 
 
-sessionInfo()
 
 source("R/order_scale_factors.R")
 

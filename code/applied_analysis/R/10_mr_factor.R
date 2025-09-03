@@ -1,3 +1,5 @@
+source("renv/activate.R")
+
 library(ieugwasr)
 library(MVMR)
 library(dplyr)

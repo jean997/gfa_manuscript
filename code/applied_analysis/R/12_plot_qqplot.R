@@ -1,9 +1,11 @@
+source("renv/activate.R")
 library(dplyr)
 library(purrr)
 library(stringr)
 library(ggplot2)
 
 
+source("renv/activate.R")
 source("R/order_scale_factors.R")
 # sample size affects genetic covariance and h2 but not intercept or genetic correlation
 z_files = unlist(snakemake@input[["Z"]])
@@ -32,7 +34,7 @@ for(j in 1:nplot){
     png(paste0(qq_out_prefix, ".", j, ".png"), 
         height = 8, width = 8, units = "in", res = 300)
     par(mfrow = c(2, 2))
-    nmax <- min(4, length(fct_names)-i -1)
+    nmax <- min(4, length(fct_names)-i)
     for(k in 1:nmax){
         qqman::qq(X[[paste0(fct_names[fct_order[i]], ".p")]], main = disp_name[i])
         i <- i + 1

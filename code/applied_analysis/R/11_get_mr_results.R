@@ -1,3 +1,4 @@
+source("renv/activate.R")
 library(stringr)
 library(dplyr)
 library(viridis)

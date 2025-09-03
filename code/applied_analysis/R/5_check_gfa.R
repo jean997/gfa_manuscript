@@ -1,3 +1,4 @@
+source("renv/activate.R")
 library(readr)
 
 fit <- readRDS(snakemake@input[[1]])

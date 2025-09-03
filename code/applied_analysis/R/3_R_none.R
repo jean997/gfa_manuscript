@@ -1,4 +1,5 @@
 
+source("renv/activate.R")
 
 gwas_info <- snakemake@input[["gwas_info"]]
 cat(gwas_info, "\n")

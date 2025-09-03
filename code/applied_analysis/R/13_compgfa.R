@@ -1,3 +1,4 @@
+source("renv/activate.R")
 library(dplyr)
 library(GFA)
 library(stringr)
@@ -22,7 +23,7 @@ res_df$nfactor <- sapply(F_hats, function(Fh){ncol(Fh)})
 
 min_norms <- lapply(F_hats, function(Fh){min_norm(f_true = F0, f_hat = Fh, single_trait_thresh=1)})
 res_df$frob_n <- sapply(min_norms, function(x){x$frob_n})
-res_df$worst_cor <- sapply(min_norms, function(x){min(x$solution$val[x$solution$val > 0], na.rm=T)})
-res_df$n_missed  <- sapply(min_norms, function(x){sum(x$solution$val < 0.8 & !is.na(x$solution$true_ix))})
+res_df$worst_match <- sapply(min_norms, function(x){min(x$solution$match_score[x$solution$match_score > 0], na.rm=T)})
+res_df$n_missed  <- sapply(min_norms, function(x){sum(x$solution$match_score < 0.8 & !is.na(x$solution$true_ix))})
 saveRDS(res_df, file = snakemake@output[["out"]])
 

@@ -1,9 +1,11 @@
+source("renv/activate.R")
 library(dplyr)
 library(purrr)
 library(stringr)
 library(ggplot2)
 library(topr)
 
+source("renv/activate.R")
 z_files_factors = unlist(snakemake@input[["Z_factors"]])
 z_files_traits = unlist(snakemake@input[["Z_traits"]])
 res <- readRDS(snakemake@input[["gfa_res"]])
