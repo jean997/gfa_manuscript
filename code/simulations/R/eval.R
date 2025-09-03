@@ -21,7 +21,6 @@ eval <- function(fit, f_true, n_subset = NULL){
         nfactors <- ncol(fit$F_hat)
         if(is.null(n_subset)){
             n_subset <- nfactors
-            f_hat <- fit$F_hat
         }
         if(n_subset == 0 | nfactors == 0){
             n_disc <- rep(0, length(disc_thresh))
@@ -38,6 +37,7 @@ eval <- function(fit, f_true, n_subset = NULL){
                       n_total = n_total)
             return(res)
          }
+         f_hat <- fit$F_hat[, 1:n_subset, drop = FALSE]
          if(is.null(f_true)){
             f_true <- diag(nrow(fit$F_hat))
          }
