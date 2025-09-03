@@ -117,7 +117,7 @@ mr_output = expand(plot_dir + "bc_mr_results.{gfas}.ldpruned_{lds}.R_{rs}.csv",
                    lds = plot_ldstrings,
                    rs = plot_rstring_main) 
 
-compgfa_output = expand(out_dir + "{prefix}_compfits.cn100.ldpruned_r20.01_kb1000_pvalue.R_ldsc.RDS", 
+compgfa_output = expand(plot_dir + "{prefix}_compfits.cn100.ldpruned_r20.01_kb1000_pvalue.R_ldsc.RDS", 
                         prefix = ["bc", "metab"])
 #############################################
 
@@ -307,7 +307,7 @@ rule topsnps_fctgls:
 rule plot_metab:
     input: gfa_fit = out_dir + "metab_gfa_{analysis}.final.RDS"
     output: out = plot_dir + "metab_plot.{analysis}.png", 
-            pve_ci = out_dir + "metab_pveci_{analysis}.RDS"
+            pve_ci = plot_dir + "metab_pveci_{analysis}.RDS"
     params: nsamp = 1000, level = 0.05
     resources: mem_mb = 20000
     script: "R/12_plot_metab.R"
@@ -357,7 +357,7 @@ rule get_mr_results:
 
 rule compare_gfa:
     input:  expand(out_dir + "{{prefix}}_gfa_gfaseed{s}_cn100.ldpruned_r20.01_kb1000_pvalue_jitter{j}.R_ldsc.final.RDS", s = [1, 2, 3], j = ["0_0", "0.5_1", "0.5_2", "0.5_3"])
-    output: out = out_dir + "{prefix}_compfits.cn100.ldpruned_r20.01_kb1000_pvalue.R_ldsc.RDS"
+    output: out = plot_dir + "{prefix}_compfits.cn100.ldpruned_r20.01_kb1000_pvalue.R_ldsc.RDS"
     resources: mem_mb = 10000
     script: "R/13_compgfa.R"
 
