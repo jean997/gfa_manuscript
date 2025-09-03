@@ -18,7 +18,7 @@ import os
 from snakemake.utils import validate
 out_dir = "../../results/simulation_results"
 nrep = 100
-#nrep = 1
+nrep = 1
 nd = [0, 3, 12]
 #nd = [3]
 scenarios_main = ["A", "B1", "B2", "B3"]
@@ -238,7 +238,7 @@ rule factorgo:
 
 
 rule eval:
-    input: dat = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS",
+    input: f_true = out_dir + "/simulate/simulateF.{scenario}.{ndense}.{rep}.RDS",
            fit = out_dir + "/{method}/{method}_{mtype}.{scenario}.{ndense}.{rep}.RDS"
     output: out = out_dir + "/{method}/df_{method}_{mtype}.{scenario}.{ndense}.{rep}.RDS"
     script: "R/eval.R"
