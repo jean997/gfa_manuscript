@@ -18,11 +18,11 @@ import os
 from snakemake.utils import validate
 out_dir = "../../results/simulation_results"
 nrep = 100
-nrep = 1
+#nrep = 1
 nd = [0, 3, 12]
 #nd = [3]
 scenarios_main = ["A", "B1", "B2", "B3"]
-scenarios_bc = ["bc"] #, "bcshuffle"]
+scenarios_bc = ["bc"] 
 scenarios_null = ["Anull", "B3null"]
 
 ## SVD output files
@@ -203,6 +203,7 @@ rule guide:
 rule spc:
     input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS"
     output: out = out_dir + "/spc/spc_{pthresh}.{scenario}.{ndense}.{rep}.RDS"
+    resources: mem_mb = 10000
     script: "R/spc.R"
 
 rule estR:
@@ -215,7 +216,7 @@ rule gfa:
     input: inp = out_dir + "/simulate/simulate.{scenario}.{ndense}.{rep}.RDS", 
            R =  out_dir + "/R_ests/R_ests.{scenario}.{ndense}.{rep}.RDS" 
     output: out = out_dir + "/gfa/gfa_{Rstring}_{ldtype}_{pthresh}_cn{cond_num}.{scenario}.{ndense}.{rep}.RDS"
-    resources: mem_mb = 10000
+    resources: mem_mb = 20000
     script: "R/gfa.R"
 
 rule ml:
