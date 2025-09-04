@@ -26,7 +26,11 @@ eval <- function(fit, f_true, n_subset = NULL){
             n_disc <- rep(0, length(disc_thresh))
             n_extra <- rep(0, length(extra_thresh))
             n_total <- 0
-            ntrue <- ncol(f_true) - length(GFA:::find_single_trait(f_true))
+            if(is.null(f_true)){
+                   ntrue <- 0
+            }else{
+                ntrue <- ncol(f_true) - length(GFA:::find_single_trait(f_true))
+            }
             frob_n <- sqrt(ntrue)
             res <- data.frame(frob_n = frob_n, 
                       n_extra_0.8 = n_extra[1],
