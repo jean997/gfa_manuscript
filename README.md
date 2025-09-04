@@ -4,7 +4,8 @@ The code in this repository can be used to reproduce the analysis in Morrison et
 
 ## Pre-Requisite Software
 You will need a conda installation and R. We used R 4.4.3 for this analysis. We have tested this repository in Linux only. If you want to run the whole 
-analysis you will also need a compute cluster and XXX storage for the applied analysis and XXX storage for the simulations. 
+analysis you will also need a compute cluster. The applied analysis requires downloading 42 Gb of data and will produce an additional 12 G of output files. 
+The simulations will produce about 3.5T of data total. Most of this will be deleted automatically at the end of the analysis.
 
 ## Setup
 ### 1. Clone this repository 
