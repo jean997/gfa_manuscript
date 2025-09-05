@@ -257,18 +257,18 @@ p <- ggplot(data.frame(n = nsig)) + geom_histogram(aes(x = n)) + xlab("Number of
 ggsave(p, file = paste0(dir, "/nsig_dist_scenarioA3.png"), width = 6, height = 5, units = "in", dpi = 300)
 
 ## S2 Distribution of number of GW-sig variants for CAD/T2D traits
-files <- paste0("../../data/gfa_intermediate_data/metab_zmat.ldpruned_r20.01_kb1000_pvalue_jitter0_0.", 1:22, ".RDS")
-t <- qnorm(1- ((5e-8)/2))
-nsig <- purrr::map_dfr(files, function(f){
-  x <- readRDS(f)
-  Z <- select(x, ends_with(".z"))
-  nsig <- apply(abs(Z), 2, function(xx){sum(xx > t)})
-  return(nsig)
-}) 
-nsig <- colSums(nsig)
-p <- ggplot(data.frame(n = nsig)) + geom_histogram(aes(x = n)) + xlab("Number of Independent Genome-Wide Significant Variants") + theme_bw()  + theme(axis.text = element_text(size = 12))
-ggsave(p, file = paste0(dir, "/nsig_dist_metab.png"), width = 6, height = 5, units = "in", dpi = 300)
-
+#files <- paste0("../../data/gfa_intermediate_data/metab_zmat.ldpruned_r20.01_kb1000_pvalue_jitter0_0.", 1:22, ".RDS")
+#t <- qnorm(1- ((5e-8)/2))
+#nsig <- purrr::map_dfr(files, function(f){
+#  x <- readRDS(f)
+#  Z <- select(x, ends_with(".z"))
+#  nsig <- apply(abs(Z), 2, function(xx){sum(xx > t)})
+#  return(nsig)
+#}) 
+#nsig <- colSums(nsig)
+#p <- ggplot(data.frame(n = nsig)) + geom_histogram(aes(x = n)) + xlab("Number of Independent Genome-Wide Significant Variants") + theme_bw()  + theme(axis.text = element_text(size = 12))
+#ggsave(p, file = paste0(dir, "/nsig_dist_metab.png"), width = 6, height = 5, units = "in", dpi = 300)
+#
 
 ## Figure S4 Causal variant effect distribution
 files <- paste0("../../results/simulation_results/simdata/simdata.A.3.", 0:99, ".RDS")
@@ -291,38 +291,43 @@ ggsave(p, file = paste0(dir, "/eff_dist_scenarioA3.png"), width = 6, height = 5,
 R <- readRDS("bc_R_estimate.R_ldsc.RDS")
 Rg <- cov2cor(R$Rg)
 Re <- cov2cor(R$R)
-png(paste0(dir, "/bc_cg_v_ce.png"), width = 5.5, height = 500, res = 300, units = "in")
-plot(Rg[lower.tri(Rg)], Re[lower.tri(Re)], xlab = "Pairwise Genetic Correlation", ylab = "Pairwise Residual Correlation")
-abline(0, 1)
-dev.off()
+R_df <- data.frame(Re = Re[lower.tri(Re)], 
+                   Rg = Rg[lower.tri(Rg)])
+#png(paste0(dir, "/bc_cg_v_ce.png"), width = 5.5, height = 500, res = 300, units = "in")
+p <- ggplot(R_df) + geom_point(aes(x = Rg, y = Re)) + xlab("Pairwise Genetic Correlation") +  ylab("Pairwise Residual Correlation") + 
+    geom_abline(slope = 1, intercept = 0) + 
+    theme_bw() +
+theme(axis.text = element_text(size = 12),
+      axis.title = element_text(size = 15))
+ggsave(p, file = paste0(dir, "/bc_cg_v_ce.png"), width = 6, height = 5, units = "in", dpi = 300)
 
 
 #### Figure S5 GW Sig variants in Scenario C vs in real BC data.
-files <- paste0("../../data/gfa_intermediate_data/bc_zmat.ldpruned_r20.01_kb1000_pvalue_jitter0_0.", 1:22, ".RDS")
-t <- qnorm(1- ((5e-8)/2))
-nsig_bc_traits <- purrr::map_dfr(files, function(f){
-  x <- readRDS(f)
-  Z <- select(x, ends_with(".z"))
-  nsig <- apply(abs(Z), 2, function(xx){sum(xx > t)})
-  return(nsig)
-}) 
-df <- data.frame(trait = names(nsig_bc_traits), 
-                 nsig_data = colSums(nsig_bc_traits))
+#files <- paste0("../../data/gfa_intermediate_data/bc_zmat.ldpruned_r20.01_kb1000_pvalue_jitter0_0.", 1:22, ".RDS")
+#t <- qnorm(1- ((5e-8)/2))
+#nsig_bc_traits <- purrr::map_dfr(files, function(f){
+#  x <- readRDS(f)
+#  Z <- select(x, ends_with(".z"))
+#  nsig <- apply(abs(Z), 2, function(xx){sum(xx > t)})
+#  return(nsig)
+#}) 
+#df <- data.frame(trait = names(nsig_bc_traits), 
+#                 nsig_data = colSums(nsig_bc_traits))
 
-files <- paste0("../../results/simulation_results/simdata/simdata.bc.3.", 0:99, ".RDS")
-traits <- paste0(readRDS("bc_R_estimate.R_ldsc.RDS")$names, ".z")
-nsig_sims <- purrr::map_dfr(files, function(f){
-  x <- readRDS(f)$nsig 
-  data.frame(trait = traits, value = x)
-}) %>% group_by(trait) %>% summarize(med = median(value), q25 = quantile(value, prob  = 0.25), q75 = quantile(value, prob = 0.75))
-df <- full_join(df, nsig_sims, by = "trait")
-p <- ggplot(df) + geom_point(aes(x = nsig_data, y = med)) + 
-  geom_errorbar(aes(ymin = q25, ymax = q75, x = nsig_data)) +
-  geom_abline(slope = 1, intercept = 0) + 
-  xlab("Number of Genome-Wide Significant Variants\nBlood Cell Data") + 
-  ylab("Number of Genome-Wide Significant Variants\nSimulated Data") +
-  theme_bw() +
-  theme(axis.text = element_text(size = 12), 
-        axis.title = element_text(size = 15))
-ggsave(p, file = paste0(dir, "/bc_ngwsig.png"), width = 6, height = 5, units = "in", dpi = 300)
+#files <- paste0("../../results/simulation_results/simdata/simdata.bc.3.", 0:99, ".RDS")
+#traits <- paste0(readRDS("bc_R_estimate.R_ldsc.RDS")$names, ".z")
+#nsig_sims <- purrr::map_dfr(files, function(f){
+#  x <- readRDS(f)$nsig 
+#  data.frame(trait = traits, value = x)
+#}) %>% group_by(trait) %>% summarize(med = median(value), q25 = quantile(value, prob  = 0.25), q75 = quantile(value, prob = 0.75))
+#df <- full_join(df, nsig_sims, by = "trait")
+#p <- ggplot(df) + geom_point(aes(x = nsig_data, y = med)) + 
+#  geom_errorbar(aes(ymin = q25, ymax = q75, x = nsig_data)) +
+#  geom_abline(slope = 1, intercept = 0) + 
+#  xlab("Number of Genome-Wide Significant Variants\nBlood Cell Data") + 
+#  ylab("Number of Genome-Wide Significant Variants\nSimulated Data") +
+#  theme_bw() +
+#  theme(axis.text = element_text(size = 12), 
+#        axis.title = element_text(size = 15))
+#ggsave(p, file = paste0(dir, "/bc_ngwsig.png"), width = 6, height = 5, units = "in", dpi = 300)
 
