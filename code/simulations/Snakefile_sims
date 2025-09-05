@@ -265,4 +265,5 @@ rule plots:
     input: sim_results = out_dir + "/full_results.RDS", simdata = simdata_files
     output: out1 = out_dir + "/plots/main_sims_ndense3.png"
     params: plot_dir = out_dir + "/plots"
+    script: "R/pub_plots.R"
 
