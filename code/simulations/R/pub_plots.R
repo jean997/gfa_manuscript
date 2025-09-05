@@ -14,7 +14,7 @@ res_df_long <- res %>%
          scenario = case_when(scenario == "bc" ~ "C", TRUE ~ scenario), 
          frob_n = frob_n^2) %>%
   select(-ftrue_file, -fit_file, -subset) %>%
-  tidyr::pivot_longer(cols = c(paste0("n_disc_", c(0.9, 0.95, 0.98)), paste0("n_extra_", c(0.8, 0.7)), "frob_n", "n_multi_factors"),
+  tidyr::pivot_longer(cols = c(paste0("n_disc_", c(0.9, 0.95, 0.98)), paste0("n_extra_", c(0.8, 0.7)), "frob_n", "n_total"),
                       values_to = "eval", names_to = "eval_type")
 
 
