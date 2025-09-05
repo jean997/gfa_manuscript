@@ -51,10 +51,10 @@
     },
     "GFA": {
       "Package": "GFA",
-      "Version": "1.0.0.0441",
+      "Version": "1.0.0.0443",
       "Source": "GitHub",
       "Title": "Genetic Factor Analysis (GFA)",
-      "Date": "2025-09-03",
+      "Date": "2025-09-05",
       "Authors@R": "person(given = \"Jean\", family = \"Morrison\", role = c(\"aut\", \"cre\"), email = \"jvmorr@umich.edu\")",
       "Description": "This package implements Genetic Factor Analysis, a method for analysis of high dimensional or multivariate genetic data. GFA can be used to infer latent heritable factors contributing to high dimensional phenotypes.",
       "License": "GPL (>= 3)",
@@ -88,7 +88,7 @@
       "RemoteUsername": "jean997",
       "RemoteRepo": "GFA",
       "RemoteRef": "master",
-      "RemoteSha": "d892832487a2197c14bf63ff3d2a3713133b42ec",
+      "RemoteSha": "edd193a397534cc2fce0514e3111a7b38fd50761",
       "Remotes": "willwerscheid/flashier, stephenslab/ebnm"
     },
     "GPArotation": {
@@ -1406,16 +1406,16 @@
     },
     "ebnm": {
       "Package": "ebnm",
-      "Version": "1.1-34",
+      "Version": "1.1-38",
       "Source": "GitHub",
       "Encoding": "UTF-8",
       "Type": "Package",
-      "Date": "2024-06-04",
+      "Date": "2025-09-04",
       "Title": "Solve the Empirical Bayes Normal Means Problem",
       "Authors@R": "c(person(\"Jason\", \"Willwerscheid\", role = \"aut\"), person(\"Matthew\", \"Stephens\", role = \"aut\"), person(\"Peter\", \"Carbonetto\", role = c(\"aut\", \"cre\"), email = \"peter.carbonetto@gmail.com\"), person(\"Andrew\", \"Goldstein\", role = \"ctb\"), person(\"Yusha\", \"Liu\", role = \"ctb\"))",
       "URL": "https://github.com/stephenslab/ebnm",
       "BugReports": "https://github.com/stephenslab/ebnm/issues",
-      "Description": "Provides simple, fast, and stable functions to fit the normal means model using empirical Bayes. For available models and details, see  function ebnm(). A detailed introduction to the package is provided by Willwerscheid and Stephens (2023) <arXiv:2110.00152>.",
+      "Description": "Provides simple, fast, and stable functions to fit the normal means model using empirical Bayes. For available models and details, see  function ebnm(). Our JSS article,  Willwerscheid, Carbonetto, and Stephens (2025) <doi:10.18637/jss.v114.i03>, provides a detailed introduction to the package.",
       "License": "GPL (>=3)",
       "NeedsCompilation": "no",
       "Depends": [
@@ -1443,7 +1443,7 @@
         "mcmc",
         "numDeriv"
       ],
-      "RoxygenNote": "7.3.1",
+      "RoxygenNote": "7.3.2",
       "VignetteBuilder": "knitr",
       "LazyData": "true",
       "Author": "Jason Willwerscheid [aut], Matthew Stephens [aut], Peter Carbonetto [aut, cre], Andrew Goldstein [ctb], Yusha Liu [ctb]",
@@ -1453,7 +1453,7 @@
       "RemoteUsername": "stephenslab",
       "RemoteRepo": "ebnm",
       "RemoteRef": "master",
-      "RemoteSha": "faaea4729b7a23d2ab031e25c41fcf3f15365520"
+      "RemoteSha": "227aab2b766f0325691334da1b8cf984823da2ff"
     },
     "etrunct": {
       "Package": "etrunct",
