@@ -1,6 +1,6 @@
 ## Introduction
 
-The code in this repository can be used to reproduce the analysis in Morrison et al (2025), "Genetic Factor Analysis for Characterizing Phenome-Wide Patterns of Genetic Pleiotropy". To run your own GFA analysis, please go to [the main GFA repository[(https://github.com/jean997/GFA). You will find detailed instructions as well as a link to our Snakemake pipeline which will run all steps of the analysis including data harmonization. 
+The code in this repository can be used to reproduce the analysis in Morrison et al (2025), "Genetic Factor Analysis for Characterizing Phenome-Wide Patterns of Genetic Pleiotropy". To run your own GFA analysis, please go to [the main GFA repository](https://github.com/jean997/GFA). You will find detailed instructions as well as a link to our Snakemake pipeline which will run all steps of the analysis including data harmonization. 
 
 ## Pre-Requisite Software
 You will need a conda installation and R. We used R 4.4.3 for this analysis. We have tested this repository in Linux only. If you want to run the whole 
